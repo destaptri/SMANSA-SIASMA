@@ -23,6 +23,18 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>NIP:</strong>
+            {{ $user->nip }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>NISN:</strong>
+            {{ $user->nisn }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
             <strong>Email:</strong>
             {{ $user->email }}
         </div>
@@ -31,10 +43,10 @@
         <div class="form-group">
             <strong>Roles:</strong>
             @if(!empty($user->getRoleNames()))
-                @foreach($user->getRoleNames() as $v)
-                    <label class="badge badge-success">{{ $v }}</label>
-                @endforeach
-            @endif
+            @foreach($user->getRoleNames() as $v)
+               <label class="badge bg-success">{{ $v }}</label>
+            @endforeach
+          @endif
         </div>
     </div>
 </div>

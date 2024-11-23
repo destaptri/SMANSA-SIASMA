@@ -45,23 +45,45 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request): RedirectResponse
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
-    
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-    
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
-    
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+{
+    // Validasi input
+    $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|same:confirm-password',
+        'roles' => 'required',
+        'input_type' => 'required|string|min:10|max:18', // Validasi panjang input
+    ]);
+
+    // Ambil semua data request
+    $input = $request->all();
+
+    // Hash password
+    $input['password'] = Hash::make($input['password']);
+
+    // Tentukan apakah input_type masuk ke nisn atau nip
+    $inputType = $request->input('input_type');
+    if (strlen($inputType) === 10) {
+        $input['nisn'] = $inputType; // Set ke kolom nisn
+    } elseif (strlen($inputType) === 18) {
+        $input['nip'] = $inputType;  // Set ke kolom nip
     }
+
+    // Hapus input_type agar tidak ada konflik
+    unset($input['input_type']);
+
+    // Simpan data user ke database
+    $user = User::create($input);
+
+    // Assign role ke user
+    $user->assignRole($request->input('roles'));
+
+    // Redirect ke halaman index users dengan pesan sukses
+    return redirect()->route('users.index')
+                     ->with('success', 'User created successfully');
+}
+
+
     
     /**
      * Display the specified resource.

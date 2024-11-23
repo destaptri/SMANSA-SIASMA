@@ -34,6 +34,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>NIP/NISN:</strong>
+                <input type="text" name="input_type" placeholder="NIP/NISN" class="form-control">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Email:</strong>
                 <input type="email" name="email" placeholder="Email" class="form-control">
             </div>
