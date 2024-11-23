@@ -8,9 +8,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Spatie\Permission\Traits\HasRoles;
 
 class AuthenticatedSessionController extends Controller
 {
+    use HasRoles;
     /**
      * Display the login view.
      */
@@ -28,7 +30,23 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Ambil user yang sedang login
+        /** @var \App\Models\User */
+        $user = Auth::user();
+
+        // Cek role dan arahkan ke halaman yang sesuai
+        if ($user->hasRole('Super Admin')) {
+            return redirect()->intended(route('dashboard'));
+        } elseif ($user->hasRole('Admin')) {
+            return redirect()->intended(route('pencarian-data'));
+        } elseif ($user->hasRole('Kepala Sekolah')) {
+            return redirect()->intended(route('laporan'));
+        } elseif ($user->hasRole('Alumni')) {
+            return redirect()->intended(route('beranda'));
+        }
+
+        // Default redirect jika tidak ada role yang cocok
+        return redirect()->intended(route('dashboard'));
     }
 
     /**

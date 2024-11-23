@@ -1,0 +1,601 @@
+
+body {
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+
+}
+
+.navbar {
+    background-color: #083579;
+    padding: 15px 50px;
+    height: auto; /* Menyesuaikan tinggi pada layar kecil */
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-nav {
+    visibility: visible !important;
+}
+
+.nav-item {
+    margin: 0px 10px;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #EDB100;
+    margin: 0;
+}
+
+.brand-subtitle {
+    font-size: 14px;
+    color: white;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .navbar .brand-name {
+        font-size: 14px;
+    }
+
+    .navbar .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.navbar-nav .nav-link.active {
+    border: 1px solid white;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #EDB100;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .divider {
+        display: block;
+    }
+}
+
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #0A58CA;
+}
+
+
+/* start page login */
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 50px 15px; /* Ubah padding menjadi lebih kecil untuk perangkat kecil */
+}
+
+.login-box {
+    background-color: white;
+    width: 100%; /* Ganti max-content dengan 100% untuk memastikan kotak memanfaatkan lebar container */
+    max-width: 450px; /* Tetapkan lebar maksimum */
+    padding: 40px; /* Sesuaikan padding jika perlu */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #e1e1e1;
+    text-align: center;
+    margin: 0 auto; /* Tambahkan ini untuk memusatkan kotak di halaman */
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #083579;
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    font-size: 32px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px;
+    color: #083579;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #083579;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    width: 100%; /* Ubah width menjadi 100% */
+    max-width: 386px; /* Maksimal lebar */
+    height: 36px;
+    padding-right: 40px; /* Ruang untuk ikon mata */
+    box-sizing: border-box;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Full width */
+}
+
+.password-container i {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    right: 12px;
+    cursor: pointer;
+    color: #083579;
+    font-size: 18px;
+    transform: translateY(-50%); /* Pusatkan ikon */
+}
+
+.links {
+    display:flex;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.links a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #6C757D;
+}
+
+.login-button {
+    padding: 10px;
+    background-color: #083579;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #003366;
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    
+    .login-box {
+        margin-top: 60px;
+        padding: 50px 30px; /* Kurangi padding */
+        max-width: 85%; /* Membiarkan box login memenuhi hampir seluruh layar pada perangkat kecil */
+    }
+
+    .login-box h2 {
+        font-size: 24px; /* Kurangi ukuran font untuk judul */
+    }
+    
+    .login-container {
+        padding: 20px; /* Kurangi padding untuk perangkat kecil */
+    }
+    
+    label {
+        font-size: smaller;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        max-width: 100%; /* Pastikan input tetap responsif */
+        font-size: x-small;
+    }
+
+    .links {
+        display: flex;
+        align-items: end;
+
+    }
+    .links a {
+        font-size: x-small;
+        text-align: right;
+    }
+
+}
+
+/* end page login */
+
+/* start page hasil-pencarian*/
+
+.search-content {
+    justify-content: center;
+    padding:10px 50px;
+}
+
+.search-content .breadcrumb {
+    padding-left: 0;
+}
+.search-content h4 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.search-content h4 {
+    color: #062A61;
+    margin-top: 15px;
+}
+
+.search-content .container-search {
+    padding-top: 25px;
+}
+
+
+input[type="search"] {
+    display: inline-flex;
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #083579;
+    background-color: #E9ECEF;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    width: 386px;
+    height: 60px;
+    padding-right: 40px; /* Make room for the eye icon */
+    box-sizing: border-box;
+}
+
+.container-search .btn {
+    display: inline-flex;
+    justify-content: center; /* Horizontally center the icon */
+    align-items: center;     /* Vertically center the icon */
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #083579;
+    background-color: #E9ECEF;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    width: 100px;
+    height: 60px;
+    box-sizing: border-box;
+}
+
+/* Custom styles */
+.table-responsive {
+    overflow-x: auto; /* Tambahkan scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling pada mobile */
+}
+.table {
+    border-collapse: separate;
+    border-spacing: 0; /* Remove gaps between cells */
+    border: 1px solid #FFFFFF; /* Outer border */
+    border-radius: 8px; /* Border radius for the whole table */
+    overflow: hidden; /* To ensure the border radius applies properly */
+    margin-top: 20px;
+}
+
+/* Table Head Styling */
+.table th {
+    background-color: #083579; /* Header background color */
+    color: white;
+    height: 45px;
+    padding-left: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+/* Table Row Styling */
+.table td {
+    border: 1px solid #FFFFFF; /* Cell border color */
+    padding: 12px 15px;
+}
+
+/* Row Background Color */
+.table tbody tr {
+    background-color: #E9ECEF; /* Row background color */
+}
+
+/* Row Hover Effect */
+.table-hover tbody tr:hover {
+    background-color: #e6f7ff; /* Hover effect */
+}
+
+/* Optional: Responsive table styling for smaller screens */
+@media (max-width: 768px) {
+    .search-content {
+        margin: 0;
+    }
+    .breadcrumb {
+        font-size: smaller;
+    }
+
+    .search-content h4 {
+        font-size: 24px;
+    }
+    
+    input[type="search"] {
+        height: 40px;
+        border-radius: 10px;
+        font-size: smaller;
+    }    
+
+    .container-search .btn {
+        height: 40px;
+        border-radius: 10px;
+        width: 40px;
+    }
+    .table th,
+    .table td {
+        font-size: 14px; /* Ukuran teks lebih kecil untuk layar kecil */
+    }
+}
+
+
+/* Custom pagination styling */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-item input {
+    width: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid #083579;
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+.pagination .page-item button {
+    background-color: transparent;
+    border: none;
+    color: #083579;
+    cursor: pointer;
+}
+
+/* end page hasil-pencarian*/
+
+/*start page index */
+
+/* Overlay untuk efek gelap */
+.overlay {
+    position: absolute; /* Overlay menutupi hero section */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna overlay dengan transparansi */
+}
+
+/* Konten dalam hero section */
+.content {
+    position: relative; /* Memastikan konten di atas overlay */
+    z-index: 1; /* Mengatur z-index agar konten muncul di atas overlay */
+    text-align: center; /* Teks di tengah */
+    margin: 0 15%; /* Margin horizontal responsif */
+}
+
+/* Ukuran teks responsif */
+.content h2 {
+    font-size: 4vw; /* Ukuran font responsif */
+    font-weight: bold; /* Menebalkan font */
+    color: #FFFFFF; /* Warna teks */
+    margin: 20px 0; /* Margin vertikal */
+}
+
+.content p {
+    font-size: 2.5vw; /* Ukuran font responsif untuk paragraf */
+    color: #FFFFFF; /* Warna teks */
+    margin: 20px 0; /* Margin vertikal */
+}
+
+/* Responsivitas untuk ukuran layar kecil */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 500px;
+    }
+    .content h2 {
+        font-size: 20px; /* Ukuran font di perangkat kecil */
+    }
+
+    .content p {
+        font-size: 14px; /* Ukuran font di perangkat kecil */
+    }
+   
+}
+
+/*end page index */
+
+/*start page biodata*/
+
+.breadcrumb {
+    position: sticky;
+    padding: 30px 60px 0px 65px;
+}
+
+.container-biodata {
+    display: flex;
+    justify-content: center;
+    padding:10px 50px;
+}
+
+.container-biodata h3 {
+    font-size: 40px;
+    color: #062A61;
+    font-weight: bold;
+}
+/* Profile image styling */
+#profile-image {
+    width: 100%; /* Mengisi lebar kontainer */
+    height: auto; /* Menyesuaikan tinggi agar proporsional */
+    aspect-ratio: 3/4;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+/* Adjust table and layout for desktop */
+.col-lg-9, .col-lg-3 {
+    max-width: 100%;
+}
+
+.container-biodata .table th {
+    text-align: left;
+    border: 1px solid #FFFFFF;
+
+}
+.container-biodata .table td {
+    background-color: #E9ECEF;
+}
+/* Set a wider width for desktop */
+@media (min-width: 992px) {
+    .col-lg-10 {
+        width: 66.67%; /* Adjust width of the table area */
+    }
+
+    .col-lg-2 {
+        width: 33.33%; /* Adjust width of the image area */
+    }
+}
+
+.container-biodata .table th {
+    vertical-align: middle;
+    width: 30%;
+} 
+
+.container-biodata .table td {
+    vertical-align: middle;
+    width: 70%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container-biodata .row {
+        width: 350px;
+    }
+    /* H3 stays at the top */
+    .container-biodata h3 {
+        text-align: center;
+        font-size: smaller;
+    }
+
+    .col-lg-3 {
+        order: 1;
+        text-align: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .col-lg-9 {
+        order: 2;
+    }
+    
+
+    /* Adjust image size for mobile */
+    #profile-image {
+        width: 50%;
+        height: auto;
+    }
+
+    /* Table adjust to vertical on mobile */
+    .container-biodata .table {
+        border-top:3px solid #062A61;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid #062A61;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .container-biodata .table th {
+        display: block;
+        width: 100%;
+        text-align: left;
+        height: min-content;
+        font-size: smaller;
+        background-color: #FFFFFF;
+        color: black;
+        font-weight: bold;
+        border: none;
+    }
+
+    .container-biodata .table td {
+        display: block;
+        width: 100%;
+        padding:0 15px;
+        text-align: left;
+        height:min-content;
+        font-size: smaller;
+        background-color: #FFFFFF;
+    }
+
+    /* Center buttons on mobile */
+    .d-flex {
+        justify-content: center;
+    }
+}
+
+/*end page biodata */
+
+
+
+.btn {
+    visibility: visible !important;
+    padding: 0px 8px;
+    font-size: 12px;
+    height: 26px;
+}
+
+/* Table Row Styling */
+.pencarian .table td {
+    border: 1px solid #FFFFFF; /* Cell border color */
+    padding: 12px 15px;
+    text-align: center; 
+    vertical-align: middle;
+}

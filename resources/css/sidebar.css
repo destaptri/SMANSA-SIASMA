@@ -1,0 +1,108 @@
+/* Sidebar styling */
+.sidebar {
+  position: fixed; /* Sidebar tetap di tempat */
+  top: 0; /* Tempatkan di bagian atas */
+  left: 0; /* Tempatkan di sisi kiri */
+  width: 25%; /* Lebar sidebar */
+  height: 100vh; /* Tinggi penuh layar */
+  background-color: white; /* Latar belakang sidebar */
+  border-right: 1.2px solid #062A61; /* Garis tepi */
+  z-index: 1000; /* Pastikan berada di atas elemen lain */
+}
+
+.sidebar-header {
+  position: sticky;
+  display: flex; /* Mengatur elemen agar dalam satu baris */
+  align-items: center; /* Menyelaraskan secara vertikal */
+  background-color: #062A61;
+}
+
+.logo {
+  width: 54px; /* Ukuran logo */
+  height: auto;
+}
+
+.brand-name {
+  font-size: 20px; /* Ukuran font "SIASMA" */
+  font-weight: bold;
+  color: #EDB100;
+}
+
+.brand-subtitle {
+  font-size: 12px; /* Ukuran font subtitle */
+  color: white;
+}
+
+
+.nav-item {
+  width: 100%;
+  margin-left: 0;
+}
+
+.nav-link {
+  padding: 11px 20px; /* Menambah padding untuk ukuran lebih besar */
+  font-size: 16px; /* Ukuran teks lebih besar */
+  display: flex;
+  align-items: center;
+  color: #062A61;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.menu {
+  padding:16px 20px;
+  -webkit-text-stroke: 1px;
+}
+
+.nav-link i {
+  margin-right: 12px;
+  font-size: 15px; /* Ikon lebih besar */
+  color: #062A61;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: #062A61;
+  color: #ffffff;
+  width: 92%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.nav-link:hover i, .nav-link.active i {
+  color: #ffffff; /* Ikon berubah menjadi putih */
+}
+
+
+.user-session {
+  padding: 40px;
+  padding-bottom: 0;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown {
+  height: fit-content;
+  border-color: #062A61;
+  border-width: 1.2px;
+  border-radius: 48px;
+}
+
+.dropdown .btn{
+  border-color: #062A61;
+  border-width: 1.2px;
+  border-radius: 48px;
+  font-size: 15px;
+  padding: 5px 10px;
+  height: 50px;
+}
+
+.admin-content {
+  width: 100%;
+}
+.admin-content .breadcrumb{
+  position: relative;
+  display: flex;
+}
+
+
