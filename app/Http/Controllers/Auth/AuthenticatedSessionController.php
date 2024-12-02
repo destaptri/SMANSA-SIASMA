@@ -45,8 +45,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('beranda'));
         }
 
-        // Default redirect jika tidak ada role yang cocok
-        return redirect()->intended(route('dashboard'));
+        // // Default redirect jika tidak ada role yang cocok
+        // return redirect()->intended(route('dashboard'));
     }
 
     /**
@@ -60,6 +60,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/beranda');
     }
 }

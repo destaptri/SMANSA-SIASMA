@@ -25,16 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 let currentPage = 1;
 const totalPages = 10; // You can dynamically set this based on data
 
-// document.getElementById('totalPages').textContent = totalPages;
 
-// // Event listeners for pagination buttons
-// document.getElementById('prevPage').addEventListener('click', function () {
-//     if (currentPage > 1) {
-//         currentPage--;
-//         document.getElementById('currentPage').value = currentPage;
-//         loadTableData(currentPage);
-//     }
-// });
 
 document.getElementById('nextPage').addEventListener('click', function () {
     if (currentPage < totalPages) {
