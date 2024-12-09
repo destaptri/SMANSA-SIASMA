@@ -50,7 +50,7 @@
                 <!-- NISN/NIP Input -->
                 <label for="input_type">{{ __('NISN/NIP/Email') }}</label>
                 <div class="email-container">
-                    <input id="input_type" type="text" class="form-control" name="input_type" value="{{ old('input_type') }}" autocomplete="username" autofocus>
+                    <input id="input_type" type="text" class="form-control" name="input_type" value="{{ old('input_type') }}" autocomplete="username" autofocus placeholder="Masukkan NISN/NIP/Email">
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 <x-input-error :messages="$errors->get('nisn')" class="mt-2" />
                 <x-input-error :messages="$errors->get('nip')" class="mt-2" />
@@ -64,7 +64,7 @@
                 <!-- Password Input -->
                 <label for="password">{{ __('Password') }}</label>
                 <div class="password-container">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Masukkan Password Anda">
                     <i class="fas fa-eye" id="togglePassword"></i>
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
 

@@ -599,3 +599,16 @@ input[type="search"] {
     text-align: center; 
     vertical-align: middle;
 }
+
+/* Profile */
+.profile-border {
+    display: flex;
+width: 1180px;
+padding: 48px 70px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+border-radius: 8px;
+background: var(--Neutral-Neutral-6, #E9ECEF);
+box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.10);
+}

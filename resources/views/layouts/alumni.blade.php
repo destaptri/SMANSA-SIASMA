@@ -60,7 +60,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Profil
                         </a>
-                        <ul class="dropdown" aria-labelledby="profileDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profil</a></li>
                             <li>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
