@@ -9,11 +9,11 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('password.update') }}">
         @csrf
         @method('put')
 
-        <div>
+        <div class="pt-2">
             <x-input-label for="update_password_current_password" :value="__('Password Saat Ini')" />
             <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
             <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
@@ -31,8 +31,8 @@
             <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="flex items-center pt-1">
+            <x-primary-button class="bg-green-600 hover:bg-green-700 text-white">{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
                 <p

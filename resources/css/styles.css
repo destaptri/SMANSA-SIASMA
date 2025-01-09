@@ -287,7 +287,7 @@ input[type="search"] {
     margin-bottom: 15px;
     font-size: 20px;
     font-family: 'Inter', sans-serif;
-    width: 100px;
+    width: 120px;
     height: 60px;
     box-sizing: border-box;
 }
@@ -603,12 +603,109 @@ input[type="search"] {
 /* Profile */
 .profile-border {
     display: flex;
-width: 1180px;
-padding: 48px 70px;
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-border-radius: 8px;
-background: var(--Neutral-Neutral-6, #E9ECEF);
-box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.10);
+    width: 1308px;
+    min-width: 500px;
+    padding: 48px 70px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--Neutral-Neutral-6, #E9ECEF);
+    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.10);
+}
+
+/* filter */
+.filter {
+    position: relative;
+}
+
+#filterMenu {
+    position: absolute; /* Pastikan dropdown memiliki posisi absolut relatif terhadap tombol */
+    top: 100%; /* Tempatkan tepat di bawah tombol */
+    right: 0; /* Atur agar sejajar ke kiri tombol */
+    transform: translateX(0); /* Hindari pergeseran horizontal */
+    z-index: 1050; /* Pastikan berada di atas elemen lainnya */
+    overflow-x: hidden !important;/* Mencegah scroll horizontal */
+
+    
+}
+
+.filter .btn {
+    background-color: #062A61;
+    padding: 0px 30px;
+    font-size: medium;
+  }
+
+.filter .dropdown-menu {
+    background-color: #083579;
+    width: 307px;
+    gap: 3px;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 307px;
+    border: none;
+}
+
+.filter .dropdown-menu h6 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.filter .custom-radio {
+    display: inline-block;
+    margin: 5px;
+}
+
+.filter .custom-radio input[type="radio"] {
+    display: none;
+}
+
+.filter .custom-radio label {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter .custom-radio input[type="radio"]:checked + label {
+    background-color: white;
+    color: #083579;
+}
+
+.filter .apply-btn {
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 20px;
+    background-color: #3D8BFD;
+    color: white;
+    border: none;
+    padding: 8px;
+}
+
+.filter .apply-btn:hover {
+    background-color: #1976d2;
+    color: white;
+}
+
+.filter .btn-filter {
+    border-radius: 20px;
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+}
+
+.filter .btn-filter:hover {
+    background-color: #1976d2;
+    color: white;
+}
+  
+.container-search .form-control {
+    font-size:medium;
 }

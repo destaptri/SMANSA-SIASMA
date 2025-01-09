@@ -53,6 +53,10 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/validasi', function () {
         return view('admin.validasi');
     })->name('antrian-validasi');
+
+    Route::get('/laporan', function () {
+        return view('admin.laporan');
+    })->name('laporan');
 });
 
 // Route lainnya yang tidak terbatas pada role tertentu
@@ -68,5 +72,9 @@ Route::get('/hasil-pencarian', function () {
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+
+Route::get('/test', function () {
+    return view('test');
+})->name('test');
 
 require __DIR__ . '/auth.php';

@@ -1,13 +1,23 @@
 /* Sidebar styling */
+.wrapper {
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  width: 100%;
+}
 .sidebar {
-  position: fixed; /* Sidebar tetap di tempat */
-  top: 0; /* Tempatkan di bagian atas */
-  left: 0; /* Tempatkan di sisi kiri */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
   width: 25%; /* Lebar sidebar */
   height: 100vh; /* Tinggi penuh layar */
   background-color: white; /* Latar belakang sidebar */
   border-right: 1.2px solid #062A61; /* Garis tepi */
-  z-index: 1000; /* Pastikan berada di atas elemen lain */
+  
 }
 
 .sidebar-header {
@@ -15,21 +25,25 @@
   display: flex; /* Mengatur elemen agar dalam satu baris */
   align-items: center; /* Menyelaraskan secara vertikal */
   background-color: #062A61;
+  z-index: 1010; /* Agar header tidak tertimpa konten sidebar */
 }
 
+
+
 .logo {
-  width: 54px; /* Ukuran logo */
+  width: 45px; /* Ukuran logo */
   height: auto;
 }
 
 .brand-name {
-  font-size: 20px; /* Ukuran font "SIASMA" */
+  font-size: 16px; /* Ukuran font "SIASMA" */
   font-weight: bold;
   color: #EDB100;
 }
 
 .brand-subtitle {
-  font-size: 12px; /* Ukuran font subtitle */
+  font-size: 11px; /* Ukuran font subtitle */
+  line-height: 5px;
   color: white;
 }
 
@@ -39,9 +53,13 @@
   margin-left: 0;
 }
 
+.nav-item a {
+  font-size: 14px;
+}
+
 .nav-link {
   padding: 11px 20px; /* Menambah padding untuk ukuran lebih besar */
-  font-size: 16px; /* Ukuran teks lebih besar */
+  font-size: 14px; /* Ukuran teks lebih besar */
   display: flex;
   align-items: center;
   color: #062A61;
@@ -98,7 +116,7 @@
 }
 
 .admin-content {
-  width: 100%;
+  width: 100%; /* Lebar konten */
 }
 .admin-content .breadcrumb{
   position: relative;

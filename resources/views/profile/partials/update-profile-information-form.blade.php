@@ -13,11 +13,11 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}">
         @csrf
         @method('patch')
 
-        <div>
+        <div class="w-full">
             <x-input-label for="name" :value="__('Nama Lengkap')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
@@ -47,8 +47,8 @@
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Simpan') }}</x-primary-button>
+        <div class="flex items-center pt-3">
+            <x-primary-button class="bg-green-600 hover:bg-green-700 text-white">{{ __('Simpan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -62,3 +62,4 @@
         </div>
     </form>
 </section>
+
