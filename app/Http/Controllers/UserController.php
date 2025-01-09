@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
     
 class UserController extends Controller
 {
@@ -83,7 +85,24 @@ class UserController extends Controller
                      ->with('success', 'User created successfully');
 }
 
+// Modified import method
+public function import(Request $request): RedirectResponse
+{
+    $this->validate($request, [
+        'excel_file' => 'required|mimes:xlsx,xls',
+    ]);
 
+    try {
+        $import = new UsersImport();
+        Excel::import($import, $request->file('excel_file'));
+
+        return redirect()->route('users.index')
+                       ->with('success', 'Alumni users imported successfully');
+    } catch (\Exception $e) {
+        return redirect()->back()
+                       ->with('error', 'Error importing users: ' . $e->getMessage());
+    }
+}
     
     /**
      * Display the specified resource.

@@ -20,6 +20,7 @@ Route::middleware(['auth', 'role:Super Admin'])->group(function () {
     Route::resource('products', ProductController::class);
     Route::get('/dashboard', function () {
         return view('dashboard');})->name('dashboard');
+    Route::post('/users/import', [UserController::class, 'import'])->name('users.import');
 });
 
 
