@@ -25,7 +25,7 @@ return new class extends Migration
             $table->year('tahun_diterima')->nullable();
             $table->string('status_bekerja')->nullable();
             $table->string('foto_pribadi')->nullable();
-            $table->enum('status_validasi', ['ya', 'tidak'])->default('tidak');
+            $table->enum('status_validasi', ['menunggu', 'disetujui', 'ditolak'])->default('menunggu');
             $table->timestamps();
         });
     }
