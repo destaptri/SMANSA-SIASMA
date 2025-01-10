@@ -34,7 +34,7 @@
                             <td data-label="Universitas">Universitas Indonesia</td>
                             <td data-label="Jurusan">Sistem Informasi</td>
                             <td style="text-align: center; vertical-align: middle;">
-                            <button class="btn btn-primary justify-content-center" href="{{ route('detail-data') }}">Lihat</button>
+                            <button class="btn btn-primary justify-content-center" href="{{ route('detail-data', $data->id) }}">Lihat</button>
                             </td>
                         </tr>
                     </tbody>

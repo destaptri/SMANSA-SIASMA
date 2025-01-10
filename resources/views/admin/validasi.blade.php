@@ -5,13 +5,16 @@
 
     <div class="container-search">
         <form class="search-box d-flex w-100">
-            <div class="input-group flex-grow-1">
-                <input class="form-control" type="search" placeholder="Cari Data Alumni..." aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
+    <div class="input-group flex-grow-1">
+        <input class="form-control" type="search" name="search" 
+               placeholder="Cari Data Alumni..." 
+               value="{{ request('search') }}"
+               aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
+</form>
     </div>
 
     <div class="row pencarian">
@@ -28,38 +31,28 @@
                         </tr>
                     </thead>
                     <tbody id="resultBody">
+                        @foreach($pengajuan as $data)
                         <tr>
-                            <td data-label="Nama Lengkap">John Doe</td>
-                            <td data-label="Tahun Lulus">2020</td>
-                            <td data-label="Universitas">Universitas Indonesia</td>
-                            <td data-label="Jurusan">Sistem Informasi</td>
+                            <td data-label="Nama Lengkap">{{ $data->nama_lengkap }}</td>
+                            <td data-label="Tahun Lulus">{{ $data->tahun_lulus }}</td>
+                            <td data-label="Universitas">{{ $data->universitas }}</td>
+                            <td data-label="Jurusan">{{ $data->jurusan }}</td>
                             <td style="text-align: center; vertical-align: middle;">
-                            <button class="btn btn-primary" href="{{ route('detail-data') }}">Lihat</button>
-                            <button class="btn btn-danger">Hapus</button>
+                                <a href="{{ route('detail-data', $data->id) }}" class="btn btn-primary" style="padding-top:3px">Lihat</a>
+                                <button class="btn btn-danger">Hapus</button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <!-- Pagination Section -->
-    <div class="pagination-container">
-        <div class="pagination">
-            <button class="page-item" id="prevPage">
-                <span>&lt;</span>
-            </button>
-            <div class="page-item">
-                <input type="text" id="currentPage" value="1">
-            </div>
-            <span class="mx-2">dari</span>
-            <span id="totalPages">10</span>
-            <button class="page-item" id="nextPage">
-                <span>&gt;</span>
-            </button>
-        </div>
-    </div>
+    <!-- Update pagination section -->
+<div class="pagination-container">
+    {{ $pengajuan->links() }}
+</div>
 </div>
 </div>
 @endsection

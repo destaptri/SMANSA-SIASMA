@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ValidasiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,15 +47,13 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/pencarian-data', function () {
         return view('admin.pencarian-data');
     })->name('pencarian-data');
-
-    Route::get('/detail-data-alumni', function () {
-        return view('admin.detail-data');
-    })->name('detail-data');
     
     Route::get('/validasi', function () {
         return view('admin.validasi');
     })->name('antrian-validasi');
-
+    Route::get('/validasi', [ValidasiController::class, 'index'])->name('antrian-validasi');
+    Route::get('/validasi/detail/{id}', [ValidasiController::class, 'show'])->name('detail-data');
+    Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('validasi.update');
     Route::get('/laporan', function () {
         return view('admin.laporan');
     })->name('laporan');

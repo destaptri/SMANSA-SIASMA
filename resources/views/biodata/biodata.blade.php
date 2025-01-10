@@ -75,12 +75,13 @@
                         </table>
 
                         <div class="d-flex justify-content-center justify-content-lg-end mt-4">
-                            <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editBiodataModal">
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal" style="background-color: #0D6EFD; color:white; margin-right:5px;">
+                                Riwayat Pengajuan
+                            </button>    
+                        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
                                 Edit Biodata
                             </button>
-                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal">
-                                Riwayat Pengajuan
-                            </button>
+                            
                         </div>
                     </div>
                 </div>
