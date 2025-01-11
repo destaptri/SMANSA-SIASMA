@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('biodata_id')->constrained('pengajuan_biodata')->onDelete('cascade'); // FK ke pengajuan_biodata
             $table->foreignId('verifikator')->constrained('users')->onDelete('cascade'); // FK ke users (admin yang memverifikasi)
-            $table->enum('status', ['ya', 'tidak'])->default('tidak');
+            $table->enum('status', ['Disetujui', 'Ditolak']);
             $table->timestamp('tanggal_verifikasi')->useCurrent();
             $table->timestamps();
         });        

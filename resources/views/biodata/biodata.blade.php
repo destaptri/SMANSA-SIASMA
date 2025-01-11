@@ -18,9 +18,9 @@
                     <!-- Foto Profil -->
                     <div class="col-lg-3 col-md-12 text-center">
                         <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
-                             class="img-fluid mb-3" 
-                             alt="Foto Alumni" 
-                             id="profile-image">
+                            class="img-fluid mb-3"
+                            alt="Foto Alumni"
+                            id="profile-image">
                     </div>
 
                     <!-- Tabel Biodata Alumni -->
@@ -75,13 +75,13 @@
                         </table>
 
                         <div class="d-flex justify-content-center justify-content-lg-end mt-4">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal" style="background-color: #0D6EFD; color:white; margin-right:5px;">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal" style="background-color: #0D6EFD; color:white; margin-right:5px;">
                                 Riwayat Pengajuan
-                            </button>    
-                        <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
+                            </button>
+                            <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
                                 Edit Biodata
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -98,17 +98,17 @@
                 <h5 class="modal-title">Edit Biodata</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form method="POST" action="{{ route('alumni.biodata.update') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('alumni.biodata.update', ['id' => $biodata->id]) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <!-- Foto Profile Section -->
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-2">
                             <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
-                                 class="rounded me-2" 
-                                 alt="Preview" 
-                                 id="preview-image"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
+                                class="rounded me-2"
+                                alt="Preview"
+                                id="preview-image"
+                                style="width: 60px; height: 60px; object-fit: cover;">
                             <div class="flex-grow-1">
                                 <label class="form-label mb-0">Foto Profil</label>
                                 <input type="file" name="foto_pribadi" class="form-control form-control-sm" accept="image/*" onchange="previewImage(this)">
@@ -198,12 +198,12 @@
                             <td class="text-center">{{ $index + 1 }}</td>
                             <td>{{ $pengajuan->created_at->format('d/m/Y H:i') }}</td>
                             <td>
-                                @if($pengajuan->status_validasi == 'menunggu')
-                                    <span class="badge bg-warning">Menunggu</span>
-                                @elseif($pengajuan->status_validasi == 'disetujui')
-                                    <span class="badge bg-success">Disetujui</span>
+                                @if($pengajuan->status_validasi == 'Menunggu')
+                                <span class="badge bg-warning">Menunggu</span>
+                                @elseif($pengajuan->status_validasi == 'Disetujui')
+                                <span class="badge bg-success">Disetujui</span>
                                 @else
-                                    <span class="badge bg-danger">Ditolak</span>
+                                <span class="badge bg-danger">Ditolak</span>
                                 @endif
                             </td>
                         </tr>
@@ -217,5 +217,17 @@
         </div>
     </div>
 </div>
-
+<script>
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            document.getElementById('preview-image').src = e.target.result;
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
 @endsection

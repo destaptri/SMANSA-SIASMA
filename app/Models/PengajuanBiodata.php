@@ -28,7 +28,7 @@ class PengajuanBiodata extends Model
 
     // Status validasi will use the database default 'menunggu'
     protected $attributes = [
-        'status_validasi' => 'menunggu'
+        'status_validasi' => 'Menunggu'
     ];
 
     // Define relationships if needed

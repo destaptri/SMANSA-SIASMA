@@ -8,14 +8,19 @@ class ValidasiBiodata extends Model
 {
     protected $table = 'validasi_biodata';
 
-    // Relasi ke model PengajuanBiodata
+    protected $fillable = [
+        'biodata_id',
+        'verifikator',
+        'status',
+        'tanggal_verifikasi'
+    ];
+
     public function pengajuanBiodata()
     {
         return $this->belongsTo(PengajuanBiodata::class, 'biodata_id');
     }
 
-    // Relasi ke model User sebagai verifikator
-    public function verifikator()
+    public function admin()
     {
         return $this->belongsTo(User::class, 'verifikator');
     }

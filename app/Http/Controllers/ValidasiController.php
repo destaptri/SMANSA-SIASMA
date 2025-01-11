@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\PengajuanBiodata;
+use App\Models\ValidasiBiodata;
+use App\Models\Biodata;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ValidasiController extends Controller
 {
@@ -12,7 +17,7 @@ public function index(Request $request)
 {
     $search = $request->input('search');
     
-    $pengajuan = PengajuanBiodata::where('status_validasi', 'menunggu')
+    $pengajuan = PengajuanBiodata::where('status_validasi', 'Menunggu')
         ->when($search, function($query) use ($search) {
             return $query->where(function($q) use ($search) {
                 $q->where('nama_lengkap', 'LIKE', "%{$search}%")
@@ -40,13 +45,103 @@ public function show($id)
 }
 
 public function update(Request $request, $id)
-{
-    $biodata = PengajuanBiodata::findOrFail($id);
-    $biodata->status_validasi = $request->status;
-    $biodata->save();
+    {
+        try {
+            DB::beginTransaction();
+            
+            $pengajuan = PengajuanBiodata::findOrFail($id);
+            
+            if($request->status === 'valid') {
+                // Update status pengajuan
+                $pengajuan->status_validasi = 'Disetujui';
+                $pengajuan->save();
 
-    return redirect()->route('validasi')
-        ->with('success', 'Status validasi berhasil diperbarui');
-}
+                // Insert ke tabel biodata
+                Biodata::create([
+                    'user_id' => $pengajuan->user_id,
+                    'nisn' => $pengajuan->nisn,
+                    'nama_lengkap' => $pengajuan->nama_lengkap,
+                    'kelas' => $pengajuan->kelas,
+                    'tahun_lulus' => $pengajuan->tahun_lulus,
+                    'universitas' => $pengajuan->universitas,
+                    'fakultas' => $pengajuan->fakultas,
+                    'jurusan' => $pengajuan->jurusan,
+                    'jalur_penerimaan' => $pengajuan->jalur_penerimaan,
+                    'tahun_diterima' => $pengajuan->tahun_diterima,
+                    'status_bekerja' => $pengajuan->status_bekerja,
+                    'foto_pribadi' => $pengajuan->foto_pribadi,
+                    'status_validasi' => 'Disetujui'
+                ]);
 
+            } else if($request->status === 'tidak_valid') {
+                $pengajuan->status_validasi = 'Ditolak';
+                $pengajuan->save();
+            }
+
+            // Catat di tabel validasi_biodata
+            ValidasiBiodata::create([
+                'biodata_id' => $pengajuan->id,
+                'verifikator' => Auth::id(), // ID admin yang sedang login
+                'status' => $pengajuan->status_validasi,
+                'tanggal_verifikasi' => now()
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('antrian-validasi')
+                ->with('success', 'Data berhasil divalidasi');
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()
+                ->with('error', 'Terjadi kesalahan saat memvalidasi data: ' . $e->getMessage());
+        }
+    }
+
+    public function updateBiodata(Request $request, $id)
+    {
+        $request->validate([
+            'nisn' => 'required',
+            'nama_lengkap' => 'required',
+            'kelas' => 'required',
+            'tahun_lulus' => 'required|numeric',
+            'status_bekerja' => 'required',
+            'universitas' => 'required',
+            'fakultas' => 'required',
+            'jurusan' => 'required',
+            'jalur_penerimaan' => 'required',
+            'tahun_diterima' => 'required|numeric',
+            'foto_pribadi' => 'image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+        $biodata = PengajuanBiodata::findOrFail($id);
+
+        // Handle foto upload jika ada
+        if ($request->hasFile('foto_pribadi')) {
+            // Hapus foto lama jika ada
+            if($biodata->foto_pribadi) {
+                Storage::delete($biodata->foto_pribadi);
+            }
+            
+            // Upload foto baru
+            $path = $request->file('foto_pribadi')->store('public/foto_pribadi');
+            $biodata->foto_pribadi = str_replace('public/', '', $path);
+        }
+
+        // Update data lainnya
+        $biodata->update([
+            'nisn' => $request->nisn,
+            'nama_lengkap' => $request->nama_lengkap,
+            'kelas' => $request->kelas,
+            'tahun_lulus' => $request->tahun_lulus,
+            'status_bekerja' => $request->status_bekerja,
+            'universitas' => $request->universitas,
+            'fakultas' => $request->fakultas,
+            'jurusan' => $request->jurusan,
+            'jalur_penerimaan' => $request->jalur_penerimaan,
+            'tahun_diterima' => $request->tahun_diterima
+        ]);
+
+        return redirect()->back()->with('success', 'Biodata berhasil diperbarui');
+    }
 }
