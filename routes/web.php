@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ValidasiController;
+use App\Http\Controllers\DataAlumniController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,10 +40,11 @@ Route::middleware(['auth', 'role:Alumni'])->group(function () {
 
 // Middleware untuk role admin
 Route::middleware(['auth', 'role:Admin'])->group(function () {
-
     Route::get('/pencarian-data', function () {
         return view('admin.pencarian-data');
     })->name('pencarian-data');
+    Route::get('/pencarian-data', [DataAlumniController::class, 'index'])->name('pencarian-data');
+    Route::get('/detail-alumni/{id}', [DataAlumniController::class, 'show'])->name('detail-pencarian');
     Route::get('/validasi', function () {
         return view('admin.validasi');
     })->name('antrian-validasi');

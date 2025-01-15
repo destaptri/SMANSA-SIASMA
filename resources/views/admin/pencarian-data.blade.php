@@ -4,9 +4,10 @@
     <h4>Data Alumni</h4>
 
     <div class="container-search">
-        <form class="search-box d-flex w-100">
+        <form class="search-box d-flex w-100" action="{{ route('pencarian-data') }}" method="GET">
             <div class="input-group flex-grow-1">
-                <input class="form-control" type="search" placeholder="Cari Data Alumni..." aria-label="Search">
+                <input class="form-control" type="search" name="search" placeholder="Cari Data Alumni..." 
+                       aria-label="Search" value="{{ request('search') }}">
                 <button class="btn btn-outline-secondary" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
@@ -27,16 +28,23 @@
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody id="resultBody">
+                    <tbody>
+                        @forelse($alumni as $data)
                         <tr>
-                            <td data-label="Nama Lengkap">John Doe</td>
-                            <td data-label="Tahun Lulus">2020</td>
-                            <td data-label="Universitas">Universitas Indonesia</td>
-                            <td data-label="Jurusan">Sistem Informasi</td>
+                            <td data-label="Nama Lengkap">{{ $data->nama_lengkap }}</td>
+                            <td data-label="Tahun Lulus">{{ $data->tahun_lulus }}</td>
+                            <td data-label="Universitas">{{ $data->universitas }}</td>
+                            <td data-label="Jurusan">{{ $data->jurusan }}</td>
                             <td style="text-align: center; vertical-align: middle;">
-                            <button class="btn btn-primary justify-content-center">Lihat</button>
+                                <a href="{{ route('detail-pencarian', $data->id) }}" 
+                                   class="btn btn-primary justify-content-center" style="padding-top:3px">Lihat</a>
                             </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="5" class="text-center">Tidak ada data yang ditemukan</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -45,20 +53,7 @@
 
     <!-- Pagination Section -->
     <div class="pagination-container">
-        <div class="pagination">
-            <button class="page-item" id="prevPage">
-                <span>&lt;</span>
-            </button>
-            <div class="page-item">
-                <input type="text" id="currentPage" value="1">
-            </div>
-            <span class="mx-2">dari</span>
-            <span id="totalPages">10</span>
-            <button class="page-item" id="nextPage">
-                <span>&gt;</span>
-            </button>
-        </div>
+        {{ $alumni->withQueryString()->links() }}
     </div>
-</div>
 </div>
 @endsection
