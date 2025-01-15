@@ -96,27 +96,26 @@
     </div>
 </div>
 
-    <form method="POST" action="{{ route('alumni.biodata.update', ['id' => $biodata->id]) }}" enctype="multipart/form-data">
-    @csrf
-    @method('POST')
-    <div class="modal fade" id="editBiodataModal" tabindex="-1">
+    <!-- Edit Biodata Modal -->
+<div class="modal fade" id="editBiodataModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Biodata</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <form method="POST" action="{{ route('alumni.biodata.update', ['id' => $biodata->id]) }}"" enctype="multipart/form-data">
-                @csrf
+            <form method="POST" action="{{ route('admin.biodata.update', ['id' => $biodata->id]) }}" enctype="multipart/form-data">
+    @csrf
+    @method('POST')
                 <div class="modal-body">
                     <!-- Foto Profile Section -->
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-2">
                             <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
-                                 class="rounded me-2" 
-                                 alt="Preview" 
-                                 id="preview-image"
-                                 style="width: 60px; height: 60px; object-fit: cover;">
+                                class="rounded me-2"
+                                alt="Preview"
+                                id="preview-image"
+                                style="width: 60px; height: 60px; object-fit: cover;">
                             <div class="flex-grow-1">
                                 <label class="form-label mb-0">Foto Profil</label>
                                 <input type="file" name="foto_pribadi" class="form-control form-control-sm" accept="image/*" onchange="previewImage(this)">
@@ -176,13 +175,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Simpan Pengajuan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-</form>
 
 <script>
 function previewImage(input) {

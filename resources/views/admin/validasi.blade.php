@@ -39,7 +39,7 @@
                             <td data-label="Jurusan">{{ $data->jurusan }}</td>
                             <td style="text-align: center; vertical-align: middle;">
                                 <a href="{{ route('detail-data', $data->id) }}" class="btn btn-primary" style="padding-top:3px">Lihat</a>
-                                <button class="btn btn-danger">Hapus</button>
+                                <!-- <button class="btn btn-danger">Hapus</button> -->
                             </td>
                         </tr>
                         @endforeach

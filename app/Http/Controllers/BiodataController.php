@@ -50,13 +50,11 @@ class BiodataController extends Controller
 
         $userId = Auth::id();
         
-        // Handle file upload if present
         $fotoPath = null;
         if ($request->hasFile('foto_pribadi')) {
             $fotoPath = $request->file('foto_pribadi')->store('biodata_foto', 'public');
         }
 
-         // Create pengajuan record without explicitly setting status_validasi
          PengajuanBiodata::create([
             'user_id' => $userId,
             'nisn' => $validated['nisn'],

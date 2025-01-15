@@ -78,7 +78,7 @@ public function update(Request $request, $id)
                 $pengajuan->save();
             }
 
-            // Catat di tabel validasi_biodata
+            // tabel validasi_biodata
             ValidasiBiodata::create([
                 'biodata_id' => $pengajuan->id,
                 'verifikator' => Auth::id(), // ID admin yang sedang login
@@ -99,49 +99,46 @@ public function update(Request $request, $id)
     }
 
     public function updateBiodata(Request $request, $id)
-    {
-        $request->validate([
-            'nisn' => 'required',
-            'nama_lengkap' => 'required',
-            'kelas' => 'required',
-            'tahun_lulus' => 'required|numeric',
-            'status_bekerja' => 'required',
-            'universitas' => 'required',
-            'fakultas' => 'required',
-            'jurusan' => 'required',
-            'jalur_penerimaan' => 'required',
-            'tahun_diterima' => 'required|numeric',
-            'foto_pribadi' => 'image|mimes:jpeg,png,jpg|max:2048'
-        ]);
+{
+    $request->validate([
+        'nisn' => 'required',
+        'nama_lengkap' => 'required',
+        'kelas' => 'required',
+        'tahun_lulus' => 'required|numeric',
+        'status_bekerja' => 'required',
+        'universitas' => 'required',
+        'fakultas' => 'required',
+        'jurusan' => 'required',
+        'jalur_penerimaan' => 'required',
+        'tahun_diterima' => 'required|numeric',
+        'foto_pribadi' => 'image|mimes:jpeg,png,jpg|max:2048'
+    ]);
 
-        $biodata = PengajuanBiodata::findOrFail($id);
-
-        // Handle foto upload jika ada
-        if ($request->hasFile('foto_pribadi')) {
-            // Hapus foto lama jika ada
-            if($biodata->foto_pribadi) {
-                Storage::delete($biodata->foto_pribadi);
-            }
-            
-            // Upload foto baru
-            $path = $request->file('foto_pribadi')->store('public/foto_pribadi');
-            $biodata->foto_pribadi = str_replace('public/', '', $path);
+    $biodata = PengajuanBiodata::findOrFail($id);
+    
+    // Handle foto upload jika ada
+    if ($request->hasFile('foto_pribadi')) {
+        if($biodata->foto_pribadi) {
+            Storage::delete($biodata->foto_pribadi);
         }
-
-        // Update data lainnya
-        $biodata->update([
-            'nisn' => $request->nisn,
-            'nama_lengkap' => $request->nama_lengkap,
-            'kelas' => $request->kelas,
-            'tahun_lulus' => $request->tahun_lulus,
-            'status_bekerja' => $request->status_bekerja,
-            'universitas' => $request->universitas,
-            'fakultas' => $request->fakultas,
-            'jurusan' => $request->jurusan,
-            'jalur_penerimaan' => $request->jalur_penerimaan,
-            'tahun_diterima' => $request->tahun_diterima
-        ]);
-
-        return redirect()->back()->with('success', 'Biodata berhasil diperbarui');
+        $path = $request->file('foto_pribadi')->store('public/foto_pribadi');
+        $biodata->foto_pribadi = str_replace('public/', '', $path);
     }
+
+    // Update data lainnya
+    $biodata->update([
+        'nisn' => $request->nisn,
+        'nama_lengkap' => $request->nama_lengkap,
+        'kelas' => $request->kelas,
+        'tahun_lulus' => $request->tahun_lulus,
+        'status_bekerja' => $request->status_bekerja,
+        'universitas' => $request->universitas,
+        'fakultas' => $request->fakultas,
+        'jurusan' => $request->jurusan,
+        'jalur_penerimaan' => $request->jalur_penerimaan,
+        'tahun_diterima' => $request->tahun_diterima
+    ]);
+
+    return redirect()->back()->with('success', 'Biodata berhasil diperbarui');
+}
 }

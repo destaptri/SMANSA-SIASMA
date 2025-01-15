@@ -1,14 +1,11 @@
 /* Sidebar styling */
 .wrapper {
   position: relative; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  width: 100%;
+  
 }
 .sidebar {
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
+  z-index: 2; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
@@ -24,7 +21,7 @@
   display: flex; /* Mengatur elemen agar dalam satu baris */
   align-items: center; /* Menyelaraskan secara vertikal */
   background-color: #062A61;
-  z-index: 1010; /* Agar header tidak tertimpa konten sidebar */
+  z-index: 3; /* Agar header tidak tertimpa konten sidebar */
 }
 
 
@@ -122,4 +119,38 @@
   display: flex;
 }
 
+/* Tambahkan di file CSS Anda */
+.modal-backdrop {
+  z-index: 1040 !important;
+}
 
+.modal {
+  z-index: 1045 !important;
+}
+
+/* Pastikan modal bisa diinteraksi */
+.modal-dialog {
+  pointer-events: all !important;
+}
+
+/* Override positioning untuk modal */
+.modal-open .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  outline: 0;
+  display: block !important;
+}
+
+/* Pastikan konten modal bisa diinteraksi */
+.modal-content {
+  position: relative;
+  pointer-events: auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}

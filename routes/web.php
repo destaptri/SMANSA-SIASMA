@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'role:Alumni'])->group(function () {
     // Biodata - hanya dapat diakses oleh role alumni
     Route::get('/biodata', [BiodataController::class, 'show'])->name('alumni.biodata');
+    Route::post('/biodata', [BiodataController::class, 'update'])->name('alumni.biodata.update');
 });
 
 // Middleware untuk role admin
@@ -42,22 +43,18 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/pencarian-data', function () {
         return view('admin.pencarian-data');
     })->name('pencarian-data');
-    
     Route::get('/validasi', function () {
         return view('admin.validasi');
     })->name('antrian-validasi');
     Route::get('/validasi', [ValidasiController::class, 'index'])->name('antrian-validasi');
     Route::get('/validasi/detail/{id}', [ValidasiController::class, 'show'])->name('detail-data');
     Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('validasi.update');
-    Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('validasi.update');
+    Route::post('/admin/biodata/update/{id}', [ValidasiController::class, 'updateBiodata'])->name('admin.biodata.update');
     Route::get('/laporan', function () {
         return view('admin.laporan');
     })->name('laporan');
 });
-Route::middleware(['auth', 'role:Alumni|Admin'])->group(function () {
-    Route::post('/alumni/biodata/update/{id}', [ValidasiController::class, 'updateBiodata'])->name('alumni.biodata.update');    
-    Route::post('/biodata', [BiodataController::class, 'update'])->name('alumni.biodata.update');
-});
+
 // Route lainnya yang tidak terbatas pada role tertentu
 Route::get('/beranda', function () {
     return view('beranda');
