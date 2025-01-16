@@ -23,7 +23,8 @@ class ValidasiController extends Controller
                     $q->where('nama_lengkap', 'LIKE', "%{$search}%")
                         ->orWhere('tahun_lulus', 'LIKE', "%{$search}%")
                         ->orWhere('universitas', 'LIKE', "%{$search}%")
-                        ->orWhere('jurusan', 'LIKE', "%{$search}%");
+                        ->orWhere('jurusan', 'LIKE', "%{$search}%")
+                        ->orWhere('jalur_penerimaan', 'LIKE', "%{$search}%");
                 });
             })
             ->paginate(10);
@@ -68,6 +69,9 @@ class ValidasiController extends Controller
                         'fakultas' => $pengajuan->fakultas,
                         'jurusan' => $pengajuan->jurusan,
                         'jalur_penerimaan' => $pengajuan->jalur_penerimaan,
+                        'pilihan_pertama' => $pengajuan->pilihan_pertama,
+                        'pilihan_kedua' => $pengajuan->pilihan_kedua,
+                        'skor_utbk' => $pengajuan->skor_utbk,
                         'tahun_diterima' => $pengajuan->tahun_diterima,
                         'status_bekerja' => $pengajuan->status_bekerja,
                         'foto_pribadi' => $pengajuan->foto_pribadi,
@@ -110,6 +114,9 @@ class ValidasiController extends Controller
             'fakultas' => 'required',
             'jurusan' => 'required',
             'jalur_penerimaan' => 'required',
+            'pilihan_pertama' => 'required',
+            'pilihan_kedua' => 'required',
+            'skor_utbk' => 'required',
             'tahun_diterima' => 'required|numeric',
             'foto_pribadi' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -136,6 +143,9 @@ class ValidasiController extends Controller
             'fakultas' => $request->fakultas,
             'jurusan' => $request->jurusan,
             'jalur_penerimaan' => $request->jalur_penerimaan,
+            'pilihan_pertama' => $request->pilihan_pertama,
+            'pilihan_kedua' => $request->pilihan_kedua,
+            'skor_utbk' => $request->skor_utbk,
             'tahun_diterima' => $request->tahun_diterima
         ]);
 

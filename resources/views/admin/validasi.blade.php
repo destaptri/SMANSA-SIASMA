@@ -27,6 +27,7 @@
                             <th>Tahun Lulus</th>
                             <th>Universitas</th>
                             <th>Jurusan</th>
+                            <th>Jalur Penerimaan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -37,6 +38,7 @@
                             <td data-label="Tahun Lulus">{{ $data->tahun_lulus }}</td>
                             <td data-label="Universitas">{{ $data->universitas }}</td>
                             <td data-label="Jurusan">{{ $data->jurusan }}</td>
+                            <td data-label="Jalur Penerimaan">{{ $data->jalur_penerimaan }}</td>
                             <td style="text-align: center; vertical-align: middle;">
                                 <a href="{{ route('detail-data', $data->id) }}" class="btn btn-primary" style="padding-top:3px">Lihat</a>
                                 <!-- <button class="btn btn-danger">Hapus</button> -->

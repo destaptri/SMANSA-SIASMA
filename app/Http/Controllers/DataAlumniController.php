@@ -17,7 +17,8 @@ class DataAlumniController extends Controller
                     $q->where('nama_lengkap', 'LIKE', "%{$search}%")
                       ->orWhere('tahun_lulus', 'LIKE', "%{$search}%")
                       ->orWhere('universitas', 'LIKE', "%{$search}%")
-                      ->orWhere('jurusan', 'LIKE', "%{$search}%");
+                      ->orWhere('jurusan', 'LIKE', "%{$search}%")
+                      ->orWhere('jalur_penerimaan', 'LIKE', "%{$search}%");
                 });
             })
             ->where('status_validasi', 'Disetujui')

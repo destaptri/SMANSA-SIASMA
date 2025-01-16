@@ -21,9 +21,12 @@ class PengajuanBiodata extends Model
         'fakultas',
         'jurusan',
         'jalur_penerimaan',
+        'pilihan_pertama',
+        'pilihan_kedua',
+        'skor_utbk',
         'tahun_diterima',
         'status_bekerja',
-        'foto_pribadi',
+        'foto_pribadi'
     ];
 
     // Status validasi will use the database default 'menunggu'

@@ -12,8 +12,20 @@ class Biodata extends Model
     protected $table = 'biodata';
 
     protected $fillable = [
-        'user_id', 'nisn', 'nama_lengkap', 'kelas', 'tahun_lulus',
-        'universitas', 'fakultas', 'jurusan', 'jalur_penerimaan',
-        'tahun_diterima','status_bekerja', 'foto_pribadi'
+        'user_id',
+        'nisn',
+        'nama_lengkap',
+        'kelas',
+        'tahun_lulus',
+        'universitas',
+        'fakultas',
+        'jurusan',
+        'jalur_penerimaan',
+        'pilihan_pertama',
+        'pilihan_kedua',
+        'skor_utbk',
+        'tahun_diterima',
+        'status_bekerja',
+        'foto_pribadi'
     ];
 }

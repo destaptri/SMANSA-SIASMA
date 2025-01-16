@@ -63,6 +63,18 @@
                                     <td class="editable">{{ $biodata->jalur_penerimaan }}</td>
                                 </tr>
                                 <tr>
+                                    <th>Pilihan Pertama</th>
+                                    <td class="editable">{{ $biodata->pilihan_pertama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pilihan Kedua</th>
+                                    <td class="editable">{{ $biodata->pilihan_kedua }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Skor UTBK</th>
+                                    <td class="editable">{{ $biodata->skor_utbk }}</td>
+                                </tr>
+                                <tr>
                                     <th>Tahun Diterima</th>
                                     <td class="editable">{{ $biodata->tahun_diterima }}</td>
                                 </tr>
@@ -167,6 +179,18 @@
                                 <input type="text" name="jalur_penerimaan" class="form-control form-control-sm" value="{{ $biodata->jalur_penerimaan }}">
                             </div>
                             <div class="mb-2">
+                                <label class="form-label small mb-1">Pilihan Pertama</label>
+                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_pertama }}">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small mb-1">Pilihan Kedua</label>
+                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}">
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small mb-1">Skor UTBK</label>
+                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->skor_utbk }}">
+                            </div>
+                            <div class="mb-2">
                                 <label class="form-label small mb-1">Tahun Diterima</label>
                                 <input type="number" name="tahun_diterima" class="form-control form-control-sm" value="{{ $biodata->tahun_diterima }}">
                             </div>
@@ -175,7 +199,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-sm btn-primary">Simpan Pengajuan</button>
+                    <button type="submit" class="btn btn-sm btn-primary" style="background-color:#28A745; border-color:#28A745">Simpan Pengajuan</button>
                 </div>
             </form>
         </div>

@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('fakultas')->nullable();
             $table->string('jurusan')->nullable();
             $table->string('jalur_penerimaan')->nullable();
+            $table->string('pilihan_pertama')->nullable();
+            $table->string('pilihan_kedua')->nullable();
+            $table->float('skor_utbk')->nullable();
             $table->year('tahun_diterima')->nullable();
             $table->string('status_bekerja')->nullable();
             $table->string('foto_pribadi')->nullable();

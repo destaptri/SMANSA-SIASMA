@@ -31,7 +31,10 @@
                             <th>Nama Lengkap</th>
                             <th>Tahun Lulus</th>
                             <th>Universitas</th>
-                            <th>Program Studi</th>
+                            <th>Jurusan</th>
+                            <th>Jalur Penerimaan</th>
+                            <th>Aksi</th>
+                            
                         </tr>
                     </thead>
                     <tbody id="resultBody">
@@ -40,14 +43,24 @@
                             <td data-label="Nama Lengkap">John Doe</td>
                             <td data-label="Tahun Lulus">2020</td>
                             <td data-label="Universitas">Universitas Indonesia</td>
-                            <td data-label="Program Studi">Teknik Informatika</td>
+                            <td data-label="Jurusan">Teknik Informatika</td>
+                            <td data-label="Jalur Penerimaan">SBMPTN</td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <a
+                                   class="btn btn-primary justify-content-center" style="padding-top:3px">Lihat</a>
+                            </td>
                         </tr>
                         <tr>
                             <td data-label="NISN">87654321</td>
                             <td data-label="Nama Lengkap">John Smith</td>
                             <td data-label="Tahun Lulus">2019</td>
                             <td data-label="Universitas">Institut Teknologi Bandung</td>
-                            <td data-label="Program Studi">Desain Produk</td>
+                            <td data-label="Jurusan">Desain Produk</td>
+                            <td data-label="Jalur Penerimaan">SBMPTN</td>
+                            <td style="text-align: center; vertical-align: middle;">
+                                <a
+                                   class="btn btn-primary justify-content-center" style="padding-top:3px">Lihat</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

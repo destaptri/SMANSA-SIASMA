@@ -63,6 +63,18 @@
                                     <td class="editable">{{ $alumni->jalur_penerimaan }}</td>
                                 </tr>
                                 <tr>
+                                    <th>Pilihan Pertama</th>
+                                    <td class="editable">{{ $alumni->pilihan_pertama }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pilihan Kedua</th>
+                                    <td class="editable">{{ $alumni->pilihan_kedua }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Skor UTBK</th>
+                                    <td class="editable">{{ $alumni->skor_utbk }}</td>
+                                </tr>
+                                <tr>
                                     <th>Tahun Diterima</th>
                                     <td class="editable">{{ $alumni->tahun_diterima }}</td>
                                 </tr>
