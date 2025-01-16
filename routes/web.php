@@ -9,6 +9,7 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ValidasiController;
 use App\Http\Controllers\DataAlumniController;
+use App\Http\Controllers\GuestSearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +20,8 @@ Route::middleware(['auth', 'role:Super Admin'])->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::get('/dashboard', function () {
-        return view('dashboard');})->name('dashboard');
+        return view('dashboard');
+    })->name('dashboard');
     Route::post('/users/import', [UserController::class, 'import'])->name('users.import');
 });
 
@@ -62,9 +64,8 @@ Route::get('/beranda', function () {
     return view('beranda');
 })->name('beranda');
 
-Route::get('/hasil-pencarian', function () {
-    return view('guest.hasil-pencarian');
-})->name('hasil-pencarian');
+Route::get('/hasil-pencarian', [GuestSearchController::class, 'index'])->name('hasil-pencarian');
+Route::get('/detail/{id}', [GuestSearchController::class, 'show'])->name('detail');
 
 // Route Login
 Route::get('/login', function () {

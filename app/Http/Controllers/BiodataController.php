@@ -45,7 +45,7 @@ class BiodataController extends Controller
             'jalur_penerimaan' => 'nullable|string|max:255',
             'pilihan_pertama' => 'nullable|string|max:225',
             'pilihan_kedua' => 'nullable|string|max:225',
-            'skor_utbk' => 'nullable|float|max:1000',
+            'skor_utbk' => 'nullable|numeric|min:0|max:1000',
             'tahun_diterima' => 'nullable|digits:4',
             'status_bekerja' => 'nullable|string|max:255',
             'foto_pribadi' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

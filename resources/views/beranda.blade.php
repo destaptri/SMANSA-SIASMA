@@ -99,9 +99,11 @@
             <h2 class="headline">Selamat Datang di SIASMA!</h2>
             <p class="tagline">Temukan Jejak, Sambung Kembali</p>
             <div class="container-search">
-                <form class="search-box d-flex w-100">
+                <form class="search-box d-flex w-100" action="{{ route('hasil-pencarian') }}" method="GET">
                     <div class="input-group flex-grow-1">
-                        <input class="form-control" type="search" placeholder="Keyword: [Nama Siswa] [Tahun Lulus] [Universitas] [Program Studi]" aria-label="Search">
+                        <input class="form-control" type="search" name="search"
+                            placeholder="Keyword: [Nama Siswa] [Tahun Lulus] [Universitas] [Jurusan] [Jalur Penerimaan]"
+                            aria-label="Search">
                         <button class="btn btn-outline-secondary" type="submit">
                             <i class="bi bi-search"></i>
                         </button>

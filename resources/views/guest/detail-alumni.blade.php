@@ -1,9 +1,10 @@
-@extends('layouts.sidebar')
+@extends('layouts.alumni')
 @section('content')
 <div class="biodata">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('pencarian-data') }}">Data Alumni</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('beranda') }}">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('hasil-pencarian') }}">Pencarian Data</a></li>
             <li class="breadcrumb-item active" aria-current="page">Detail Data Alumni</li>
         </ol>
     </nav>
@@ -14,16 +15,9 @@
                 <h3 class="text-lg-start text-center">Data Alumni</h3>
 
                 <div class="row">
-                    <!-- Foto Profil -->
-                    <div class="col-lg-3 col-md-12 text-center">
-                        <img src="{{ $alumni->foto_pribadi ? asset('storage/' . $alumni->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
-                            class="img-fluid mb-3"
-                            alt="Foto Alumni"
-                            id="profile-image">
-                    </div>
 
                     <!-- Tabel Biodata Alumni -->
-                    <div class="col-lg-9 col-md-12">
+                    <div class="col-lg-12 col-md-12">
                         <table class="table table-bordered" id="biodata-table">
                             <tbody>
                                 <tr>

@@ -11,7 +11,7 @@
     <div class="container-biodata col-lg-12">
         <div class="row justify-content-center col-lg-12">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <h3 class="text-lg-start text-center">Biodata Alumni</h3>
+                <h3 class="text-lg-start text-center">Data Alumni</h3>
 
                 <div class="row">
                     <!-- Foto Profil -->
@@ -108,7 +108,7 @@
     </div>
 </div>
 
-    <!-- Edit Biodata Modal -->
+<!-- Edit Biodata Modal -->
 <div class="modal fade" id="editBiodataModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -117,8 +117,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <form method="POST" action="{{ route('admin.biodata.update', ['id' => $biodata->id]) }}" enctype="multipart/form-data">
-    @csrf
-    @method('POST')
+                @csrf
+                @method('POST')
                 <div class="modal-body">
                     <!-- Foto Profile Section -->
                     <div class="mb-3">
@@ -179,16 +179,16 @@
                                 <input type="text" name="jalur_penerimaan" class="form-control form-control-sm" value="{{ $biodata->jalur_penerimaan }}">
                             </div>
                             <div class="mb-2">
-                                <label class="form-label small mb-1">Pilihan Pertama</label>
+                                <label class="form-label small mb-1"> Universitas Pilihan Pertama</label>
                                 <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_pertama }}">
                             </div>
                             <div class="mb-2">
-                                <label class="form-label small mb-1">Pilihan Kedua</label>
-                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}">
+                                <label class="form-label small mb-1"> Universitas Pilihan Kedua</label>
+                                <input type="text" name="pilihan_kedua" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Skor UTBK</label>
-                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->skor_utbk }}">
+                                <input type="text" name="skor_utbk" class="form-control form-control-sm" value="{{ $biodata->skor_utbk }}">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Tahun Diterima</label>
@@ -207,16 +207,16 @@
 </div>
 
 <script>
-function previewImage(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-            document.getElementById('preview-image').src = e.target.result;
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('preview-image').src = e.target.result;
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
-        
-        reader.readAsDataURL(input.files[0]);
     }
-}
 </script>
 @endsection

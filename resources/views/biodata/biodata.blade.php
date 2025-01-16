@@ -172,11 +172,11 @@
                                 <input type="text" name="jalur_penerimaan" class="form-control form-control-sm" value="{{ $biodata->jalur_penerimaan }}">
                             </div>
                             <div class="mb-2">
-                                <label class="form-label small mb-1">Pilihan Pertama</label>
+                                <label class="form-label small mb-1">Universitas Pilihan Pertama</label>
                                 <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_pertama }}">
                             </div>
                             <div class="mb-2">
-                                <label class="form-label small mb-1">Pilihan Kedua</label>
+                                <label class="form-label small mb-1">Universitas Pilihan Kedua</label>
                                 <input type="text" name="pilihan_kedua" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}">
                             </div>
                             <div class="mb-2">

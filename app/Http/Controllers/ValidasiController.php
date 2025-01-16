@@ -116,7 +116,7 @@ class ValidasiController extends Controller
             'jalur_penerimaan' => 'required',
             'pilihan_pertama' => 'required',
             'pilihan_kedua' => 'required',
-            'skor_utbk' => 'required',
+            'skor_utbk' => 'required|numeric',
             'tahun_diterima' => 'required|numeric',
             'foto_pribadi' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);

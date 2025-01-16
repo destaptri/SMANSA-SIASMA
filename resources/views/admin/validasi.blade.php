@@ -5,16 +5,16 @@
 
     <div class="container-search">
         <form class="search-box d-flex w-100">
-    <div class="input-group flex-grow-1">
-        <input class="form-control" type="search" name="search" 
-               placeholder="Cari Data Alumni..." 
-               value="{{ request('search') }}"
-               aria-label="Search">
-        <button class="btn btn-outline-secondary" type="submit">
-            <i class="bi bi-search"></i>
-        </button>
-    </div>
-</form>
+            <div class="input-group flex-grow-1">
+                <input class="form-control" type="search" name="search"
+                    placeholder="Cari Data Alumni..."
+                    value="{{ request('search') }}"
+                    aria-label="Search">
+                <button class="btn btn-outline-secondary" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
     </div>
 
     <div class="row pencarian">
@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody id="resultBody">
-                        @foreach($pengajuan as $data)
+                        @forelse($pengajuan as $data)
                         <tr>
                             <td data-label="Nama Lengkap">{{ $data->nama_lengkap }}</td>
                             <td data-label="Tahun Lulus">{{ $data->tahun_lulus }}</td>
@@ -44,17 +44,22 @@
                                 <!-- <button class="btn btn-danger">Hapus</button> -->
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="6" class="text-center">Tidak ada data yang ditemukan</td>
+                        </tr>
+                        @endforelse
                     </tbody>
+
                 </table>
             </div>
         </div>
     </div>
 
     <!-- Update pagination section -->
-<div class="pagination-container">
-    {{ $pengajuan->links() }}
-</div>
+    <div class="pagination-container">
+        {{ $pengajuan->links() }}
+    </div>
 </div>
 </div>
 @endsection
