@@ -37,10 +37,6 @@
                                     <td class="editable">{{ $alumni->tahun_lulus }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Status Pekerjaan</th>
-                                    <td class="editable">{{ $alumni->status_bekerja }}</td>
-                                </tr>
-                                <tr>
                                     <th>Universitas</th>
                                     <td class="editable">{{ $alumni->universitas }}</td>
                                 </tr>
@@ -57,11 +53,11 @@
                                     <td class="editable">{{ $alumni->jalur_penerimaan }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Pertama</th>
+                                    <th>Universitas Pilihan Pertama</th>
                                     <td class="editable">{{ $alumni->pilihan_pertama }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Kedua</th>
+                                    <th>Universitas Pilihan Kedua</th>
                                     <td class="editable">{{ $alumni->pilihan_kedua }}</td>
                                 </tr>
                                 <tr>
@@ -71,10 +67,6 @@
                                 <tr>
                                     <th>Tahun Diterima</th>
                                     <td class="editable">{{ $alumni->tahun_diterima }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Status Validasi</th>
-                                    <td class="editable">{{ $alumni->status_validasi }}</td>
                                 </tr>
                             </tbody>
                         </table>

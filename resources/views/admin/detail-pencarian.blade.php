@@ -63,11 +63,11 @@
                                     <td class="editable">{{ $alumni->jalur_penerimaan }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Pertama</th>
+                                    <th>Universitas Pilihan Pertama</th>
                                     <td class="editable">{{ $alumni->pilihan_pertama }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Kedua</th>
+                                    <th>Universitas Pilihan Kedua</th>
                                     <td class="editable">{{ $alumni->pilihan_kedua }}</td>
                                 </tr>
                                 <tr>

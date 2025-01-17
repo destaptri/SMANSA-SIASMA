@@ -63,11 +63,11 @@
                                     <td class="editable">{{ $biodata->jalur_penerimaan }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Pertama</th>
+                                    <th>Universitas Pilihan Pertama</th>
                                     <td class="editable">{{ $biodata->pilihan_pertama }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Pilihan Kedua</th>
+                                    <th>Universitas Pilihan Kedua</th>
                                     <td class="editable">{{ $biodata->pilihan_kedua }}</td>
                                 </tr>
                                 <tr>
@@ -158,10 +158,6 @@
                                 <label class="form-label small mb-1">Status Pekerjaan</label>
                                 <input type="text" name="status_bekerja" class="form-control form-control-sm" value="{{ $biodata->status_bekerja }}">
                             </div>
-                        </div>
-
-                        <!-- Data Pendidikan -->
-                        <div class="col-md-6">
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Universitas</label>
                                 <input type="text" name="universitas" class="form-control form-control-sm" value="{{ $biodata->universitas }}">
@@ -170,6 +166,10 @@
                                 <label class="form-label small mb-1">Fakultas</label>
                                 <input type="text" name="fakultas" class="form-control form-control-sm" value="{{ $biodata->fakultas }}">
                             </div>
+                        </div>
+
+                        <!-- Data Pendidikan -->
+                        <div class="col-md-6">
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Jurusan</label>
                                 <input type="text" name="jurusan" class="form-control form-control-sm" value="{{ $biodata->jurusan }}">
