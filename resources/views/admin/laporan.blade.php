@@ -1,93 +1,73 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="search-content">
-  <h4>Laporan Data Alumni</h4>
-  <div class="container-search">
-  <div class="d-flex align-items-center gap-3">
-    <!-- Search Input -->
-    <form class="search-box flex-grow-1">
-      <div class="input-group">
-        <input class="form-control" type="search" placeholder="Cari Data Alumni..." aria-label="Search">
-        <button class="btn btn-outline-secondary flex-grow-2" type="submit">
-          <i class="bi bi-search"></i>
-        </button>
-      </div>
-    </form>
+    <h4>Laporan Data Alumni</h4>
+    <div class="container-search">
+        <div class="d-flex align-items-center gap-3">
+            <!-- Search Input -->
+            <form class="search-box flex-grow-1">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Cari Data Alumni..." aria-label="Search">
+                    <button class="btn btn-outline-secondary flex-grow-2" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
 
-    <!-- Filter Dropdown -->
-    <div class="filter position-relative">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownFilterButton">
-        Filter By
-    </button>
+            <!-- Filter Dropdown -->
+            <div class="filter position-relative">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownFilterButton">
+                    Pilih Kolom
+                </button>
 
-      <div class="dropdown-menu" id="filterMenu">
-            <h6>Universitas</h6>
-            <div class="custom-radio-group">
-                <div class="custom-radio">
-                    <input type="radio" name="universitas" id="untan" value="Universitas Tanjungpura">
-                    <label for="untan">Universitas Tanjungpura</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="universitas" id="pnp" value="Politeknik Negeri Pontianak">
-                    <label for="pnp">Politeknik Negeri Pontianak</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="universitas" id="ugm" value="Universitas Gadjah Mada">
-                    <label for="ugm">Universitas Gadjah Mada</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="universitas" id="itb" value="Institut Teknologi Bandung">
-                    <label for="itb">Institut Teknologi Bandung</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="universitas" id="lainnya-universitas" value="Lainnya">
-                    <label for="lainnya-universitas">Lainnya</label>
+                <div class="dropdown-menu" id="filterMenu">
+                    <h6>Pilih Kolom</h6>
+                    <div class="custom-checkbox-group">
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="nisn" value="NISN">
+                            <label for="nisn">NISN</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="nama_lengkap" value="Nama Lengkap">
+                            <label for="nama_lengkap">Nama Lengkap</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="tahun_lulus" value="Tahun Lulus">
+                            <label for="tahun_lulus">Tahun Lulus</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="universitas" value="Universitas">
+                            <label for="universitas">Universitas</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="jurusan" value="Jurusan">
+                            <label for="jurusan">Jurusan</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="jalur_penerimaan" value="Jalur Penerimaan">
+                            <label for="jalur_penerimaan">Jalur Penerimaan</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="pilihan_pertama" value="Pilihan Pertama">
+                            <label for="pilihan_pertama">Pilihan Pertama</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="pilihan_kedua" value="Pilihan Kedua">
+                            <label for="pilihan_kedua">Pilihan Kedua</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="skor_utbk" value="Skor UTBK">
+                            <label for="skor_utbk">Skor UTBK</label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox" name="filter[]" id="tahun_diterima" value="Tahun Diterima">
+                            <label for="tahun_diterima">Tahun Diterima</label>
+                        </div>
+                    </div>
+                    <button class="btn apply-btn" id="applyBtn">Terapkan</button>
                 </div>
             </div>
-
-            <h6 class="mt-4">Jurusan</h6>
-            <div class="custom-radio-group">
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="si" value="Sistem Informasi">
-                    <label for="si">Sistem Informasi</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="statistika" value="Statistika">
-                    <label for="statistika">Statistika</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="kedokteran" value="Kedokteran">
-                    <label for="kedokteran">Kedokteran</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="manajemen" value="Manajemen">
-                    <label for="manajemen">Manajemen</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="psikologi" value="Psikologi">
-                    <label for="psikologi">Psikologi</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="jurusan" id="lainnya-jurusan" value="Lainnya">
-                    <label for="lainnya-jurusan">Lainnya</label>
-                </div>
-            </div>
-
-            <h6 class="mt-4">Tahun Lulus</h6>
-            <div class="custom-radio-group">
-                <div class="custom-radio">
-                    <input type="radio" name="tahun" id="2023" value="2023">
-                    <label for="2023">2023</label>
-                </div>
-                <div class="custom-radio">
-                    <input type="radio" name="tahun" id="2024" value="2024">
-                    <label for="2024">2024</label>
-                </div>
-            </div>
-
-            <button class="btn apply-btn" id="applyBtn">Terapkan</button>
         </div>
-    </div>
     </div>
 
 
@@ -116,6 +96,12 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    <div class="export d-flex justify-content-end mt-2">
+        <button type="button" class="btn" data-bs-toggle="" data-bs-target="" style="background-color: #083579;">
+            Export As Excel
+        </button>
     </div>
 
     <!-- Pagination Section -->

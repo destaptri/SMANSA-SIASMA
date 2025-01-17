@@ -1,13 +1,14 @@
-
 body {
-    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    font-family: 'Inter', sans-serif;
+    /* Menggunakan font Inter */
 
 }
 
 .navbar {
     background-color: #083579;
     padding: 15px 50px;
-    height: auto; /* Menyesuaikan tinggi pada layar kecil */
+    height: auto;
+    /* Menyesuaikan tinggi pada layar kecil */
     font-family: 'Inter', sans-serif;
 }
 
@@ -102,24 +103,30 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 50px 15px; /* Ubah padding menjadi lebih kecil untuk perangkat kecil */
+    padding: 50px 15px;
+    /* Ubah padding menjadi lebih kecil untuk perangkat kecil */
 }
 
 .login-box {
     background-color: white;
-    width: 100%; /* Ganti max-content dengan 100% untuk memastikan kotak memanfaatkan lebar container */
-    max-width: 450px; /* Tetapkan lebar maksimum */
-    padding: 40px; /* Sesuaikan padding jika perlu */
+    width: 100%;
+    /* Ganti max-content dengan 100% untuk memastikan kotak memanfaatkan lebar container */
+    max-width: 450px;
+    /* Tetapkan lebar maksimum */
+    padding: 40px;
+    /* Sesuaikan padding jika perlu */
     border-radius: 10px;
     box-shadow: 0 4px 10px #e1e1e1;
     text-align: center;
-    margin: 0 auto; /* Tambahkan ini untuk memusatkan kotak di halaman */
+    margin: 0 auto;
+    /* Tambahkan ini untuk memusatkan kotak di halaman */
 }
 
 .login-box h2 {
     margin-bottom: 20px;
     color: #083579;
-    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    font-family: 'Inter', sans-serif;
+    /* Menggunakan font Inter */
     font-size: 32px;
     font-weight: bold;
 }
@@ -143,11 +150,15 @@ input[type="password"] {
     border: 1px solid #083579;
     margin-bottom: 15px;
     font-size: 14px;
-    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
-    width: 100%; /* Ubah width menjadi 100% */
-    max-width: 386px; /* Maksimal lebar */
+    font-family: 'Inter', sans-serif;
+    /* Menggunakan font Inter */
+    width: 100%;
+    /* Ubah width menjadi 100% */
+    max-width: 386px;
+    /* Maksimal lebar */
     height: 36px;
-    padding-right: 40px; /* Ruang untuk ikon mata */
+    padding-right: 40px;
+    /* Ruang untuk ikon mata */
     box-sizing: border-box;
 }
 
@@ -155,7 +166,8 @@ input[type="password"] {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%; /* Full width */
+    width: 100%;
+    /* Full width */
 }
 
 .password-container i {
@@ -166,11 +178,12 @@ input[type="password"] {
     cursor: pointer;
     color: #083579;
     font-size: 18px;
-    transform: translateY(-50%); /* Pusatkan ikon */
+    transform: translateY(-50%);
+    /* Pusatkan ikon */
 }
 
 .links {
-    display:flex;
+    display: flex;
     align-items: end;
     margin-bottom: 20px;
 }
@@ -197,28 +210,33 @@ input[type="password"] {
 
 /* Media Query untuk Responsivitas */
 @media (max-width: 768px) {
-    
+
     .login-box {
         margin-top: 60px;
-        padding: 50px 30px; /* Kurangi padding */
-        max-width: 85%; /* Membiarkan box login memenuhi hampir seluruh layar pada perangkat kecil */
+        padding: 50px 30px;
+        /* Kurangi padding */
+        max-width: 85%;
+        /* Membiarkan box login memenuhi hampir seluruh layar pada perangkat kecil */
     }
 
     .login-box h2 {
-        font-size: 24px; /* Kurangi ukuran font untuk judul */
+        font-size: 24px;
+        /* Kurangi ukuran font untuk judul */
     }
-    
+
     .login-container {
-        padding: 20px; /* Kurangi padding untuk perangkat kecil */
+        padding: 20px;
+        /* Kurangi padding untuk perangkat kecil */
     }
-    
+
     label {
         font-size: smaller;
     }
-    
+
     input[type="text"],
     input[type="password"] {
-        max-width: 100%; /* Pastikan input tetap responsif */
+        max-width: 100%;
+        /* Pastikan input tetap responsif */
         font-size: x-small;
     }
 
@@ -227,6 +245,7 @@ input[type="password"] {
         align-items: end;
 
     }
+
     .links a {
         font-size: x-small;
         text-align: right;
@@ -240,12 +259,13 @@ input[type="password"] {
 
 .search-content {
     justify-content: center;
-    padding:10px 50px;
+    padding: 10px 50px;
 }
 
 .search-content .breadcrumb {
     padding-left: 0;
 }
+
 .search-content h4 {
     font-size: 32px;
     font-weight: bold;
@@ -269,17 +289,21 @@ input[type="search"] {
     background-color: #E9ECEF;
     margin-bottom: 15px;
     font-size: 20px;
-    font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+    font-family: 'Inter', sans-serif;
+    /* Menggunakan font Inter */
     width: 386px;
     height: 60px;
-    padding-right: 40px; /* Make room for the eye icon */
+    padding-right: 40px;
+    /* Make room for the eye icon */
     box-sizing: border-box;
 }
 
 .container-search .btn {
     display: inline-flex;
-    justify-content: center; /* Horizontally center the icon */
-    align-items: center;     /* Vertically center the icon */
+    justify-content: center;
+    /* Horizontally center the icon */
+    align-items: center;
+    /* Vertically center the icon */
     padding: 10px;
     border-radius: 16px;
     border: 1px solid #083579;
@@ -294,21 +318,29 @@ input[type="search"] {
 
 /* Custom styles */
 .table-responsive {
-    overflow-x: auto; /* Tambahkan scroll horizontal */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling pada mobile */
+    overflow-x: auto;
+    /* Tambahkan scroll horizontal */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling pada mobile */
 }
+
 .table {
     border-collapse: separate;
-    border-spacing: 0; /* Remove gaps between cells */
-    border: 1px solid #FFFFFF; /* Outer border */
-    border-radius: 8px; /* Border radius for the whole table */
-    overflow: hidden; /* To ensure the border radius applies properly */
+    border-spacing: 0;
+    /* Remove gaps between cells */
+    border: 1px solid #FFFFFF;
+    /* Outer border */
+    border-radius: 8px;
+    /* Border radius for the whole table */
+    overflow: hidden;
+    /* To ensure the border radius applies properly */
     margin-top: 20px;
 }
 
 /* Table Head Styling */
 .table th {
-    background-color: #083579; /* Header background color */
+    background-color: #083579;
+    /* Header background color */
     color: white;
     height: 45px;
     padding-left: 15px;
@@ -320,18 +352,21 @@ input[type="search"] {
 
 /* Table Row Styling */
 .table td {
-    border: 1px solid #FFFFFF; /* Cell border color */
+    border: 1px solid #FFFFFF;
+    /* Cell border color */
     padding: 12px 15px;
 }
 
 /* Row Background Color */
 .table tbody tr {
-    background-color: #E9ECEF; /* Row background color */
+    background-color: #E9ECEF;
+    /* Row background color */
 }
 
 /* Row Hover Effect */
 .table-hover tbody tr:hover {
-    background-color: #e6f7ff; /* Hover effect */
+    background-color: #e6f7ff;
+    /* Hover effect */
 }
 
 /* Optional: Responsive table styling for smaller screens */
@@ -339,6 +374,7 @@ input[type="search"] {
     .search-content {
         margin: 0;
     }
+
     .breadcrumb {
         font-size: smaller;
     }
@@ -346,21 +382,23 @@ input[type="search"] {
     .search-content h4 {
         font-size: 24px;
     }
-    
+
     input[type="search"] {
         height: 40px;
         border-radius: 10px;
         font-size: smaller;
-    }    
+    }
 
     .container-search .btn {
         height: 40px;
         border-radius: 10px;
         width: 40px;
     }
+
     .table th,
     .table td {
-        font-size: 14px; /* Ukuran teks lebih kecil untuk layar kecil */
+        font-size: 14px;
+        /* Ukuran teks lebih kecil untuk layar kecil */
     }
 }
 
@@ -370,7 +408,7 @@ input[type="search"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .pagination {
@@ -406,34 +444,47 @@ input[type="search"] {
 
 /* Overlay untuk efek gelap */
 .overlay {
-    position: absolute; /* Overlay menutupi hero section */
+    position: absolute;
+    /* Overlay menutupi hero section */
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Warna overlay dengan transparansi */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Warna overlay dengan transparansi */
 }
 
 /* Konten dalam hero section */
 .content {
-    position: relative; /* Memastikan konten di atas overlay */
-    z-index: 1; /* Mengatur z-index agar konten muncul di atas overlay */
-    text-align: center; /* Teks di tengah */
-    margin: 0 15%; /* Margin horizontal responsif */
+    position: relative;
+    /* Memastikan konten di atas overlay */
+    z-index: 1;
+    /* Mengatur z-index agar konten muncul di atas overlay */
+    text-align: center;
+    /* Teks di tengah */
+    margin: 0 15%;
+    /* Margin horizontal responsif */
 }
 
 /* Ukuran teks responsif */
 .content h2 {
-    font-size: 4vw; /* Ukuran font responsif */
-    font-weight: bold; /* Menebalkan font */
-    color: #FFFFFF; /* Warna teks */
-    margin: 20px 0; /* Margin vertikal */
+    font-size: 4vw;
+    /* Ukuran font responsif */
+    font-weight: bold;
+    /* Menebalkan font */
+    color: #FFFFFF;
+    /* Warna teks */
+    margin: 20px 0;
+    /* Margin vertikal */
 }
 
 .content p {
-    font-size: 2.5vw; /* Ukuran font responsif untuk paragraf */
-    color: #FFFFFF; /* Warna teks */
-    margin: 20px 0; /* Margin vertikal */
+    font-size: 2.5vw;
+    /* Ukuran font responsif untuk paragraf */
+    color: #FFFFFF;
+    /* Warna teks */
+    margin: 20px 0;
+    /* Margin vertikal */
 }
 
 /* Responsivitas untuk ukuran layar kecil */
@@ -441,14 +492,17 @@ input[type="search"] {
     .hero-section {
         height: 500px;
     }
+
     .content h2 {
-        font-size: 20px; /* Ukuran font di perangkat kecil */
+        font-size: 20px;
+        /* Ukuran font di perangkat kecil */
     }
 
     .content p {
-        font-size: 14px; /* Ukuran font di perangkat kecil */
+        font-size: 14px;
+        /* Ukuran font di perangkat kecil */
     }
-   
+
 }
 
 /*end page index */
@@ -463,7 +517,7 @@ input[type="search"] {
 .container-biodata {
     display: flex;
     justify-content: center;
-    padding:10px 50px;
+    padding: 10px 50px;
 }
 
 .container-biodata h3 {
@@ -471,17 +525,21 @@ input[type="search"] {
     color: #062A61;
     font-weight: bold;
 }
+
 /* Profile image styling */
 #profile-image {
-    width: 100%; /* Mengisi lebar kontainer */
-    height: auto; /* Menyesuaikan tinggi agar proporsional */
+    width: 100%;
+    /* Mengisi lebar kontainer */
+    height: auto;
+    /* Menyesuaikan tinggi agar proporsional */
     aspect-ratio: 3/4;
     margin-top: 20px;
     object-fit: cover;
 }
 
 /* Adjust table and layout for desktop */
-.col-lg-9, .col-lg-3 {
+.col-lg-9,
+.col-lg-3 {
     max-width: 100%;
 }
 
@@ -490,24 +548,28 @@ input[type="search"] {
     border: 1px solid #FFFFFF;
 
 }
+
 .container-biodata .table td {
     background-color: #E9ECEF;
 }
+
 /* Set a wider width for desktop */
 @media (min-width: 992px) {
     .col-lg-10 {
-        width: 66.67%; /* Adjust width of the table area */
+        width: 66.67%;
+        /* Adjust width of the table area */
     }
 
     .col-lg-2 {
-        width: 33.33%; /* Adjust width of the image area */
+        width: 33.33%;
+        /* Adjust width of the image area */
     }
 }
 
 .container-biodata .table th {
     vertical-align: middle;
     width: 30%;
-} 
+}
 
 .container-biodata .table td {
     vertical-align: middle;
@@ -519,6 +581,7 @@ input[type="search"] {
     .container-biodata .row {
         width: 350px;
     }
+
     /* H3 stays at the top */
     .container-biodata h3 {
         text-align: center;
@@ -533,10 +596,11 @@ input[type="search"] {
         flex-direction: column;
         align-items: center;
     }
+
     .col-lg-9 {
         order: 2;
     }
-    
+
 
     /* Adjust image size for mobile */
     #profile-image {
@@ -546,13 +610,14 @@ input[type="search"] {
 
     /* Table adjust to vertical on mobile */
     .container-biodata .table {
-        border-top:3px solid #062A61;
+        border-top: 3px solid #062A61;
         border-left: none;
         border-right: none;
         border-bottom: 3px solid #062A61;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .container-biodata .table th {
         display: block;
         width: 100%;
@@ -568,9 +633,9 @@ input[type="search"] {
     .container-biodata .table td {
         display: block;
         width: 100%;
-        padding:0 15px;
+        padding: 0 15px;
         text-align: left;
-        height:min-content;
+        height: min-content;
         font-size: smaller;
         background-color: #FFFFFF;
     }
@@ -594,9 +659,10 @@ input[type="search"] {
 
 /* Table Row Styling */
 .pencarian .table td {
-    border: 1px solid #FFFFFF; /* Cell border color */
+    border: 1px solid #FFFFFF;
+    /* Cell border color */
     padding: 12px 15px;
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
 }
 
@@ -620,21 +686,19 @@ input[type="search"] {
 }
 
 #filterMenu {
-    position: absolute; /* Pastikan dropdown memiliki posisi absolut relatif terhadap tombol */
-    top: 100%; /* Tempatkan tepat di bawah tombol */
-    right: 0; /* Atur agar sejajar ke kiri tombol */
-    transform: translateX(0); /* Hindari pergeseran horizontal */
-    z-index: 1050; /* Pastikan berada di atas elemen lainnya */
-    overflow-x: hidden !important;/* Mencegah scroll horizontal */
-
-    
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateX(0);
+    z-index: 1050;
+    overflow-x: hidden !important;
 }
 
 .filter .btn {
     background-color: #062A61;
     padding: 0px 30px;
     font-size: medium;
-  }
+}
 
 .filter .dropdown-menu {
     background-color: #083579;
@@ -653,16 +717,16 @@ input[type="search"] {
     font-size: 14px;
 }
 
-.filter .custom-radio {
+.filter .custom-checkbox {
     display: inline-block;
     margin: 5px;
 }
 
-.filter .custom-radio input[type="radio"] {
+.filter .custom-checkbox input[type="checkbox"] {
     display: none;
 }
 
-.filter .custom-radio label {
+.filter .custom-checkbox label {
     display: inline-block;
     padding: 8px 15px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -673,13 +737,14 @@ input[type="search"] {
     transition: all 0.3s ease;
 }
 
-.filter .custom-radio input[type="radio"]:checked + label {
+.filter .custom-checkbox input[type="checkbox"]:checked+label {
     background-color: white;
     color: #083579;
 }
 
 .filter .apply-btn {
     width: 100%;
+    height: 36px;
     border-radius: 30px;
     margin-top: 20px;
     background-color: #3D8BFD;
@@ -705,9 +770,24 @@ input[type="search"] {
     background-color: #1976d2;
     color: white;
 }
-  
+
+.export .btn {
+    display: flex;
+    width: 130px;
+    height: 40px;
+    align-items: center;
+    flex-shrink: 0;
+    color: #FFFFFF;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+}
+
 .container-search .form-control {
-    font-size:medium;
+    font-size: medium;
 }
 
 /* modal biodata */
@@ -729,7 +809,8 @@ input[type="search"] {
     font-size: 0.75rem;
 }
 
-.table-sm td, .table-sm th {
+.table-sm td,
+.table-sm th {
     padding: 0.3rem;
     font-size: 0.875rem;
 }
