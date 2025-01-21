@@ -1,47 +1,47 @@
-<section class="profile-border">
+<section class="profile-section col-lg-12 col-sm-12">
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Ubah Password') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Demi keamanan akun, perbarui kata sandi Anda secara berkala.') }}
-        </p>
+        <h2 class="profile-section-title">Ubah Password</h2>
+        <p class="profile-section-subtitle">Demi keamanan akun, perbarui kata sandi Anda secara berkala.</p>
     </header>
 
     <form method="post" action="{{ route('password.update') }}">
         @csrf
         @method('put')
 
-        <div class="pt-2">
-            <x-input-label for="update_password_current_password" :value="__('Password Saat Ini')" />
-            <x-text-input id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+        <div class="profile-form-group">
+            <label for="update_password_current_password" class="profile-form-label">Password Saat Ini</label>
+            <input id="update_password_current_password" name="current_password" type="password" class="profile-form-input" autocomplete="current-password" />
+            <span class="profile-error-message">
+                @if ($errors->updatePassword->get('current_password'))
+                    {{ $errors->updatePassword->get('current_password')[0] }}
+                @endif
+            </span>
         </div>
 
-        <div>
-            <x-input-label for="update_password_password" :value="__('Password Baru')" />
-            <x-text-input id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+        <div class="profile-form-group">
+            <label for="update_password_password" class="profile-form-label">Password Baru</label>
+            <input id="update_password_password" name="password" type="password" class="profile-form-input" autocomplete="new-password" />
+            <span class="profile-error-message">
+                @if ($errors->updatePassword->get('password'))
+                    {{ $errors->updatePassword->get('password')[0] }}
+                @endif
+            </span>
         </div>
 
-        <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Konfirmasi Password')" />
-            <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+        <div class="profile-form-group">
+            <label for="update_password_password_confirmation" class="profile-form-label">Konfirmasi Password</label>
+            <input id="update_password_password_confirmation" name="password_confirmation" type="password" class="profile-form-input" autocomplete="new-password" />
+            <span class="profile-error-message">
+                @if ($errors->updatePassword->get('password_confirmation'))
+                    {{ $errors->updatePassword->get('password_confirmation')[0] }}
+                @endif
+            </span>
         </div>
 
-        <div class="flex items-center pt-1">
-            <x-primary-button class="bg-green-600 hover:bg-green-700 text-white">{{ __('Simpan') }}</x-primary-button>
-
+        <div class="profile-form-actions">
+            <button type="submit" class="profile-btn profile-btn-primary">Simpan</button>
             @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                <p class="profile-status-message">Saved.</p>
             @endif
         </div>
     </form>

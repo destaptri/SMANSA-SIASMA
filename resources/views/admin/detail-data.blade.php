@@ -160,11 +160,11 @@
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Universitas</label>
-                                <input type="text" name="universitas" class="form-control form-control-sm" value="{{ $biodata->universitas }}">
+                                <input type="text" name="universitas" class="form-control form-control-sm" value="{{ $biodata->universitas }}" placeholder="Contoh: Universitas Diponegoro">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Fakultas</label>
-                                <input type="text" name="fakultas" class="form-control form-control-sm" value="{{ $biodata->fakultas }}">
+                                <input type="text" name="fakultas" class="form-control form-control-sm" value="{{ $biodata->fakultas }}" placeholder="Contoh: FKIP">
                             </div>
                         </div>
 
@@ -172,7 +172,7 @@
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Jurusan</label>
-                                <input type="text" name="jurusan" class="form-control form-control-sm" value="{{ $biodata->jurusan }}">
+                                <input type="text" name="jurusan" class="form-control form-control-sm" value="{{ $biodata->jurusan }}" placeholder="Contoh: Pendidikan Biologi">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Jalur Penerimaan</label>
@@ -180,15 +180,15 @@
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1"> Universitas Pilihan Pertama</label>
-                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_pertama }}">
+                                <input type="text" name="pilihan_pertama" class="form-control form-control-sm" value="{{ $biodata->pilihan_pertama }}" placeholder="Contoh: Universitas Diponegoro">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1"> Universitas Pilihan Kedua</label>
-                                <input type="text" name="pilihan_kedua" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}">
+                                <input type="text" name="pilihan_kedua" class="form-control form-control-sm" value="{{ $biodata->pilihan_kedua }}" placeholder="Contoh: Universitas Negeri Semarang">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Skor UTBK</label>
-                                <input type="text" name="skor_utbk" class="form-control form-control-sm" value="{{ $biodata->skor_utbk }}">
+                                <input type="text" name="skor_utbk" class="form-control form-control-sm" value="{{ $biodata->skor_utbk }}" placeholder="Contoh: 543.6">
                             </div>
                             <div class="mb-2">
                                 <label class="form-label small mb-1">Tahun Diterima</label>
