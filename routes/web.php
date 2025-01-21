@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ValidasiController;
 use App\Http\Controllers\DataAlumniController;
 use App\Http\Controllers\GuestSearchController;
+use App\Http\Controllers\LaporanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,9 +55,8 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/validasi/detail/{id}', [ValidasiController::class, 'show'])->name('detail-data');
     Route::put('/validasi/{id}', [ValidasiController::class, 'update'])->name('validasi.update');
     Route::post('/admin/biodata/update/{id}', [ValidasiController::class, 'updateBiodata'])->name('admin.biodata.update');
-    Route::get('/laporan', function () {
-        return view('admin.laporan');
-    })->name('laporan');
+    Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
+    Route::get('/admin/laporan/export', [LaporanController::class, 'export'])->name('admin.laporan.export');
 });
 
 // Route lainnya yang tidak terbatas pada role tertentu

@@ -6,8 +6,8 @@
     <div class="container-search">
         <form class="search-box d-flex w-100" action="{{ route('pencarian-data') }}" method="GET">
             <div class="input-group flex-grow-1">
-                <input class="form-control" type="search" name="search" placeholder="Cari Data Alumni..." 
-                       aria-label="Search" value="{{ request('search') }}">
+                <input class="form-control" type="search" name="search" placeholder="Cari Data Alumni..."
+                    aria-label="Search" value="{{ request('search') }}">
                 <button class="btn btn-outline-secondary" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
@@ -38,8 +38,8 @@
                             <td data-label="Jurusan">{{ $data->jurusan }}</td>
                             <td data-label="Jalur Penerimaan">{{ $data->jalur_penerimaan }}</td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <a href="{{ route('detail-pencarian', $data->id) }}" 
-                                   class="btn btn-primary justify-content-center" style="padding-top:3px">Lihat</a>
+                                <a href="{{ route('detail-pencarian', $data->id) }}"
+                                    class="btn btn-primary justify-content-center" style="padding-top:3px">Lihat</a>
                             </td>
                         </tr>
                         @empty

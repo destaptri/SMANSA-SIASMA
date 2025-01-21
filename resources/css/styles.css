@@ -729,17 +729,18 @@ input[type="search"] {
 .filter .custom-checkbox label {
     display: inline-block;
     padding: 8px 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: white;
     border-radius: 20px;
-    color: white;
+    color: #6C757D;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
+    font-weight: normal;
 }
 
 .filter .custom-checkbox input[type="checkbox"]:checked+label {
-    background-color: white;
-    color: #083579;
+    background-color: #CDE0FE;
+    color: #6C757D;
 }
 
 .filter .apply-btn {

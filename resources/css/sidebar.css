@@ -4,16 +4,16 @@
   
 }
 .sidebar {
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 2; /* Stay on top */
-  top: 0; /* Stay at the top */
+  position: fixed;
+  top: 0;
   left: 0;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  width: 25%; /* Lebar sidebar */
-  height: 100vh; /* Tinggi penuh layar */
-  background-color: white; /* Latar belakang sidebar */
-  border-right: 1.2px solid #062A61; /* Garis tepi */
-  
+  height: 100vh;
+  width: 25%;
+  background-color: white;
+  border-right: 1.2px solid #062A61;
+  z-index: 1030; /* Higher than dropdown but lower than modal */
+  overflow-y: auto; /* Allow vertical scroll if needed */
+  overflow-x: hidden;
 }
 
 .sidebar-header {

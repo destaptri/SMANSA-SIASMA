@@ -5,15 +5,21 @@
     <div class="container-search">
         <div class="d-flex align-items-center gap-3">
             <!-- Search Input -->
-            <form class="search-box flex-grow-1">
+            <form class="search-box flex-grow-1" method="GET" action="{{ route('admin.laporan') }}">
                 <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Cari Data Alumni..." aria-label="Search">
+                    <input class="form-control" type="search" name="search" placeholder="Cari Data Alumni..."
+                        value="{{ request('search') }}" aria-label="Search">
                     <button class="btn btn-outline-secondary flex-grow-2" type="submit">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
+                <!-- Hidden inputs for selected columns -->
+                @foreach($selectedColumns as $column)
+                <input type="hidden" name="columns[]" value="{{ $column }}">
+                @endforeach
             </form>
 
+            <!-- Filter Dropdown -->
             <!-- Filter Dropdown -->
             <div class="filter position-relative">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownFilterButton">
@@ -22,54 +28,37 @@
 
                 <div class="dropdown-menu" id="filterMenu">
                     <h6>Pilih Kolom</h6>
-                    <div class="custom-checkbox-group">
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="nisn" value="NISN">
-                            <label for="nisn">NISN</label>
+                    <form id="columnForm" action="{{ route('admin.laporan') }}" method="GET">
+                        @if(request('search'))
+                        <input type="hidden" name="search" value="{{ request('search') }}">
+                        @endif
+                        <div class="custom-checkbox-group">
+                            <!-- Required columns (disabled and always checked) -->
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="nisn" value="nisn" checked disabled>
+                                <label for="nisn">NISN</label>
+                            </div>
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="nama_lengkap" value="nama_lengkap" checked disabled>
+                                <label for="nama_lengkap">Nama Lengkap</label>
+                            </div>
+
+                            <!-- Optional columns -->
+                            @foreach($availableColumns as $value => $label)
+                            <div class="custom-checkbox">
+                                <input type="checkbox" name="columns[]" id="{{ $value }}"
+                                    value="{{ $value }}"
+                                    {{ in_array($value, $selectedColumns) ? 'checked' : '' }}>
+                                <label for="{{ $value }}">{{ $label }}</label>
+                            </div>
+                            @endforeach
                         </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="nama_lengkap" value="Nama Lengkap">
-                            <label for="nama_lengkap">Nama Lengkap</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="tahun_lulus" value="Tahun Lulus">
-                            <label for="tahun_lulus">Tahun Lulus</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="universitas" value="Universitas">
-                            <label for="universitas">Universitas</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="jurusan" value="Jurusan">
-                            <label for="jurusan">Jurusan</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="jalur_penerimaan" value="Jalur Penerimaan">
-                            <label for="jalur_penerimaan">Jalur Penerimaan</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="pilihan_pertama" value="Pilihan Pertama">
-                            <label for="pilihan_pertama">Pilihan Pertama</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="pilihan_kedua" value="Pilihan Kedua">
-                            <label for="pilihan_kedua">Pilihan Kedua</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="skor_utbk" value="Skor UTBK">
-                            <label for="skor_utbk">Skor UTBK</label>
-                        </div>
-                        <div class="custom-checkbox">
-                            <input type="checkbox" name="filter[]" id="tahun_diterima" value="Tahun Diterima">
-                            <label for="tahun_diterima">Tahun Diterima</label>
-                        </div>
-                    </div>
-                    <button class="btn apply-btn" id="applyBtn">Terapkan</button>
+                        <button type="submit" class="btn apply-btn" id="applyBtn">Terapkan</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="row pencarian">
         <div class="col-lg-12">
@@ -77,49 +66,123 @@
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>NISN</th>
-                            <th>Nama Lengkap</th>
-                            <th>Tahun Lulus</th>
-                            <th>Universitas</th>
-                            <th>Jurusan</th>
+                            @foreach($selectedColumns as $column)
+                            <th>{{ $allColumns[$column] }}</th>
+                            @endforeach
                         </tr>
                     </thead>
                     <tbody id="resultBody">
+                        @forelse($alumni as $data)
                         <tr>
-                            <td data-label="Nama Lengkap">1234567890</td>
-                            <td data-label="Nama Lengkap">John Doe</td>
-                            <td data-label="Tahun Lulus">2020</td>
-                            <td data-label="Universitas">Universitas Indonesia</td>
-                            <td data-label="Jurusan">Sistem Informasi</td>
+                            @foreach($selectedColumns as $column)
+                            <td data-label="{{ $allColumns[$column] }}">
+                                {{ $data->$column }}
+                            </td>
+                            @endforeach
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="{{ count($selectedColumns) }}" class="text-center">
+                                Tidak ada data yang ditemukan
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <div class="export d-flex justify-content-end mt-2">
-        <button type="button" class="btn" data-bs-toggle="" data-bs-target="" style="background-color: #083579;">
-            Export As Excel
-        </button>
+    <div class="export d-flex justify-content-end align-items-center mt-2">
+        <form action="{{ route('admin.laporan.export') }}" method="GET">
+            @if(request('search'))
+            <input type="hidden" name="search" value="{{ request('search') }}">
+            @endif
+            @foreach($selectedColumns as $column)
+            <input type="hidden" name="columns[]" value="{{ $column }}">
+            @endforeach
+            <button type="submit" class="btn" style="background-color: #083579; color: white;">
+                Export As Excel
+            </button>
+        </form>
     </div>
 
-    <!-- Pagination Section -->
-    <div class="pagination-container">
-        <div class="pagination">
-            <button class="page-item" id="prevPage">
-                <span>&lt;</span>
-            </button>
-            <div class="page-item">
-                <input type="text" id="currentPage" value="1">
-            </div>
-            <span class="mx-2">dari</span>
-            <span id="totalPages">10</span>
-            <button class="page-item" id="nextPage">
-                <span>&gt;</span>
-            </button>
-        </div>
+    <div class="pagination">
+        {{ $alumni->links() }}
     </div>
 </div>
-</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const columnForm = document.getElementById('columnForm');
+        const checkboxes = columnForm.querySelectorAll('input[type="checkbox"]:not([disabled])');
+        const dropdownButton = document.getElementById('dropdownFilterButton');
+        const filterMenu = document.getElementById('filterMenu');
+        let isDropdownOpen = false;
+    });
+
+    // Toggle dropdown manually
+    dropdownButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        isDropdownOpen = !isDropdownOpen;
+        if (isDropdownOpen) {
+            filterMenu.classList.add('show');
+            dropdownButton.setAttribute('aria-expanded', 'true');
+        } else {
+            filterMenu.classList.remove('show');
+            dropdownButton.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!filterMenu.contains(e.target) && !dropdownButton.contains(e.target)) {
+            filterMenu.classList.remove('show');
+            dropdownButton.setAttribute('aria-expanded', 'false');
+            isDropdownOpen = false;
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside
+    filterMenu.addEventListener('click', function(e) {
+        if (e.target.id !== 'applyBtn') {
+            e.stopPropagation();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const columnForm = document.getElementById('columnForm');
+        const checkboxes = columnForm.querySelectorAll('input[type="checkbox"]:not([disabled])');
+
+        // Function to count selected checkboxes (excluding required ones)
+        function countSelectedColumns() {
+            return Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .length;
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked && countSelectedColumns() > 4) { // 4 optional + 2 required = 6 total
+                    this.checked = false;
+                    alert('Maksimal 6 kolom yang dapat dipilih (termasuk NISN dan Nama Lengkap)');
+                }
+            });
+        });
+
+        // Handle form submission
+        columnForm.addEventListener('submit', function() {
+            bsDropdown.hide(); // Hide dropdown when form is submitted
+        });
+
+        // Prevent dropdown from closing when clicking checkboxes
+        const checkboxContainers = document.querySelectorAll('.custom-checkbox');
+        checkboxContainers.forEach(container => {
+            container.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+    });
+</script>
 @endsection
