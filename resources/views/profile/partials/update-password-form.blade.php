@@ -39,7 +39,7 @@
         </div>
 
         <div class="profile-form-actions">
-            <button type="submit" class="profile-btn profile-btn-primary">Simpan</button>
+            <button type="submit" class="profile-btn profile-btn-primary" style="padding:7px 20px">Simpan</button>
             @if (session('status') === 'password-updated')
                 <p class="profile-status-message">Saved.</p>
             @endif

@@ -46,7 +46,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6" class="text-center">Tidak ada data yang ditemukan</td>
+                            <td colspan="6" class="text-center">Antrian validasi kosong.</td>
                         </tr>
                         @endforelse
                     </tbody>

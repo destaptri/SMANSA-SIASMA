@@ -56,7 +56,7 @@
         </div>
 
         <div class="profile-form-actions">
-            <button type="submit" class="profile-btn profile-btn-primary">{{ __('Simpan') }}</button>
+            <button type="submit" class="profile-btn profile-btn-primary" style="margin-top: 15px; padding:7px 20px">{{ __('Simpan') }}</button>
 
             @if (session('status') === 'profile-updated')
                 <p class="profile-status-message">

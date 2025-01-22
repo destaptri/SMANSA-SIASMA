@@ -43,6 +43,9 @@ Route::middleware(['auth', 'role:Alumni'])->group(function () {
 
 // Middleware untuk role admin
 Route::middleware(['auth', 'role:Admin'])->group(function () {
+    Route::get('/menu', function () {
+    return view('admin.menu');
+    })->name('admin.menu');
     Route::get('/pencarian-data', function () {
         return view('admin.pencarian-data');
     })->name('pencarian-data');

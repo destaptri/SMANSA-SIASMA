@@ -42,7 +42,7 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link mt-2.5 {{ Route::currentRouteName() === 'menu' ? 'active' : '' }}" href="#">
+                    <a class="nav-link mt-2.5 {{ Route::currentRouteName() === 'admin.menu' ? 'active' : '' }}" href="{{ route('admin.menu') }}">
                         <i class="bi bi-grid"></i> MENU
                     </a>
                 </li>
@@ -114,7 +114,8 @@
     @vite([
     'resources/js/script.js',
     'resources/js/sidebar.js',
-    'resources/js/filter.js'
+    'resources/js/filter.js',
+    'resources/js/alert.js'
     ])
 </body>
 

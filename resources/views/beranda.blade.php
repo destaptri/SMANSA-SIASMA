@@ -56,13 +56,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     @guest
-                    <a href="{{ route('beranda') }}" class="nav-item nav-link active">Beranda</a>
-                    <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
+                    <a href="{{ route('beranda') }}" class="nav-item nav-link active" style="padding:7px 15px; margin-right:3px;">Beranda</a>
+                    <a href="{{ route('login') }}" class="nav-item nav-link" style="border-color: white; color:#083579; background-color:white; border-radius:5px;padding:7px 15px;">Login</a>
                     @endguest
 
                     @auth
                     <li class="nav-item">
-                        <a href="{{ route('beranda') }}" class="nav-link active">Beranda</a>
+                        <a href="{{ route('beranda') }}" class="nav-link active" style="padding:7px 15px;">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('alumni.biodata') }}" class="nav-link">Biodata</a>

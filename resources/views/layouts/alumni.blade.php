@@ -87,6 +87,7 @@
 <script src="js/scripts.js"></script> -->
 @vite([
         'resources/js/script.js'
+        'resources/js/alert.js'
 ])
 </body>
 </html>
