@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
         if ($user->hasRole('Super Admin')) {
             return redirect()->intended(route('dashboard'));
         } elseif ($user->hasRole('Admin')) {
-            return redirect()->intended(route('pencarian-data'));
+            return redirect()->intended(route('admin.menu'));
         } elseif ($user->hasRole('Kepala Sekolah')) {
             return redirect()->intended(route('laporan'));
         } elseif ($user->hasRole('Alumni')) {

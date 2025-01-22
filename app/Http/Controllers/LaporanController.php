@@ -9,6 +9,17 @@ use App\Exports\AlumniExport;
 
 class LaporanController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware('permission:laporan-show|laporan-export', ['only' => ['index']]);
+        $this->middleware('permission:laporan-export', ['only' => ['export']]);
+    }
+
     public function index(Request $request)
     {
         $query = Biodata::query();

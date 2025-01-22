@@ -12,7 +12,18 @@ use Illuminate\Support\Facades\DB;
 
 class ValidasiController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware('permission:validasi-show|validasi-validate|validasi-update', ['only' => ['index', 'show']]);
+        $this->middleware('permission:validasi-validate', ['only' => ['update']]);
+        $this->middleware('permission:validasi-update', ['only' => ['updateBiodata']]);
+    }
+    
     public function index(Request $request)
     {
         $search = $request->input('search');

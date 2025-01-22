@@ -10,11 +10,22 @@ use Illuminate\Support\Facades\Storage;
 
 class BiodataController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+        $this->middleware('permission:biodata-show|biodata-update', ['only' => ['show', 'update']]);
+        $this->middleware('permission:biodata-update', ['only' => ['update']]);
+    }
+
     public function show()
     {
         $userId = Auth::id();
         $biodata = Biodata::where('user_id', $userId)->first();
-        
+
         if (!$biodata) {
             $user = Auth::user();
             $biodata = new Biodata([
@@ -52,13 +63,13 @@ class BiodataController extends Controller
         ]);
 
         $userId = Auth::id();
-        
+
         $fotoPath = null;
         if ($request->hasFile('foto_pribadi')) {
             $fotoPath = $request->file('foto_pribadi')->store('biodata_foto', 'public');
         }
 
-         PengajuanBiodata::create([
+        PengajuanBiodata::create([
             'user_id' => $userId,
             'nisn' => $validated['nisn'],
             'nama_lengkap' => $validated['nama_lengkap'],
