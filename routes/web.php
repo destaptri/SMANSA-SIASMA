@@ -9,6 +9,7 @@ use App\Http\Controllers\ValidasiController;
 use App\Http\Controllers\DataAlumniController;
 use App\Http\Controllers\GuestSearchController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\LaporanKepsekController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,7 +42,7 @@ Route::middleware(['auth', 'role:Alumni'])->group(function () {
 // Middleware untuk role admin
 Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/menu', function () {
-    return view('admin.menu');
+        return view('admin.menu');
     })->name('admin.menu');
     Route::get('/pencarian-data', function () {
         return view('admin.pencarian-data');
@@ -57,6 +58,15 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::post('/admin/biodata/update/{id}', [ValidasiController::class, 'updateBiodata'])->name('admin.biodata.update');
     Route::get('/admin/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
     Route::get('/admin/laporan/export', [LaporanController::class, 'export'])->name('admin.laporan.export');
+});
+
+// Middleware untuk role kepsek
+Route::middleware(['auth', 'role:Kepala Sekolah'])->group(function () {
+    Route::get('/menu-kepsek', function () {
+        return view('kepsek.menu-kepsek');
+    })->name('kepsek.menu');
+    Route::get('/kepalasekolah/laporan', [LaporanKepsekController::class, 'index'])->name('kepsek.laporan');
+    Route::get('/kepalasekolah/laporan/export', [LaporanKepsekController::class, 'export'])->name('kepsek.laporan.export');
 });
 
 // Route lainnya yang tidak terbatas pada role tertentu

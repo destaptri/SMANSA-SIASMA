@@ -40,7 +40,7 @@ class AuthenticatedSessionController extends Controller
         } elseif ($user->hasRole('Admin')) {
             return redirect()->intended(route('admin.menu'));
         } elseif ($user->hasRole('Kepala Sekolah')) {
-            return redirect()->intended(route('laporan'));
+            return redirect()->intended(route('kepsek.menu'));
         } elseif ($user->hasRole('Alumni')) {
             return redirect()->intended(route('beranda'));
         }
