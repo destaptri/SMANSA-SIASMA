@@ -87,7 +87,8 @@ class BiodataController extends Controller
             'foto_pribadi' => $fotoPath,
         ]);
 
-        return redirect()->route('alumni.biodata')
-            ->with('success', 'Pengajuan perubahan biodata berhasil diajukan dan menunggu validasi.');
+        session()->flash('flash_success', 'Pengajuan biodata berhasil disimpan.');
+
+        return redirect()->route('alumni.biodata');
     }
 }

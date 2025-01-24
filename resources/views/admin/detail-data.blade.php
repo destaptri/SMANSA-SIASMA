@@ -93,10 +93,10 @@
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
                                     Edit Biodata
                                 </button>
-                                <button type="submit" name="status" value="valid" class="btn btn-success">
+                                <button type="submit" name="status" value="valid" class="btn btn-success" onclick="confirmAccept()">
                                     Validasi
                                 </button>
-                                <button type="submit" name="status" value="tidak_valid" class="btn btn-danger">
+                                <button type="submit" name="status" value="tidak_valid" class="btn btn-danger" onclick="confirmReject(event)">
                                     Tolak
                                 </button>
                             </form>
@@ -218,5 +218,62 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php if (session('success')): ?>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: "{{ session('success') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        <?php endif; ?>
+    })
+
+    // SweetAlert2 untuk Validasi
+function confirmAccept() {
+    Swal.fire({
+        icon: 'success',
+        title: 'Data telah divalidasi',
+        showConfirmButton: false,
+        timer: 1500
+    }).then(() => {
+        // Submit form setelah popup ditutup
+        document.forms[0].submit();
+    });
+}
+
+// SweetAlert2 untuk Tolak
+function confirmReject(event) {
+
+    Swal.fire({
+        title: 'Tolak Pengajuan Biodata?',
+        text: "Apakah Anda yakin ingin menolak pengajuan biodata?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Tidak'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Jika Ya, tampilkan pop-up Data Ditolak
+            Swal.fire({
+                icon: 'error',
+                title: 'Data Telah Ditolak',
+                showConfirmButton: false,
+                timer: 1500 // Menampilkan selama 1,5 detik
+            }).then(() => {
+                // Tambahkan sedikit delay sebelum submit form agar popup terlihat
+                setTimeout(function() {
+                    document.forms[1].submit(); // Submit form setelah popup ditutup
+                }, 1500); // Waktu delay sesuai dengan durasi timer pop-up pertama
+            });
+        } else {
+            // Jika Tidak, form tidak jadi disubmit
+            return false;
+        }
+    });
+}
+
+
 </script>
 @endsection

@@ -253,5 +253,15 @@ function previewImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+window.onload = function () {
+        <?php if (session('flash_success')): ?>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: "{{ session('flash_success') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        <?php endif; ?>
+    };
 </script>
 @endsection

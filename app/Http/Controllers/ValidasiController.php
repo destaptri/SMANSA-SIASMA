@@ -23,7 +23,7 @@ class ValidasiController extends Controller
         $this->middleware('permission:validasi-validate', ['only' => ['update']]);
         $this->middleware('permission:validasi-update', ['only' => ['updateBiodata']]);
     }
-    
+
     public function index(Request $request)
     {
         $search = $request->input('search');
@@ -103,13 +103,11 @@ class ValidasiController extends Controller
             ]);
 
             DB::commit();
-
-            return redirect()->route('antrian-validasi')
-                ->with('success', 'Data berhasil divalidasi');
+            session()->flash('validation_success', $request->status === 'valid' ? 'Data Tersimpan' : 'Data Telah Ditolak');
+            return redirect()->route('antrian-validasi');
         } catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat memvalidasi data: ' . $e->getMessage());
+            return redirect()->back();
         }
     }
 
