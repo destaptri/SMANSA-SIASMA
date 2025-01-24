@@ -101,7 +101,7 @@
             @foreach($selectedColumns as $column)
             <input type="hidden" name="columns[]" value="{{ $column }}">
             @endforeach
-            <button type="submit" class="btn" style="background-color: #083579; color: white;">
+            <button type="submit" class="btn" style="background-color: #083579; color: white;" onclick="confirmExport(event)">
                 Export As Excel
             </button>
         </form>
@@ -184,5 +184,20 @@
         });
 
     });
+
+    function confirmExport(event) {
+        event.preventDefault(); // Cegah form submit langsung
+
+        Swal.fire({
+            title: "Konfirmasi",
+            text: "Apakah Anda ingin mengunduh data sebagai file Excel?",
+            icon: "warning",
+            confirmButtonText: "Download"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                event.target.closest('form').submit(); // Kirim form setelah konfirmasi
+            }
+        });
+    }
 </script>
 @endsection

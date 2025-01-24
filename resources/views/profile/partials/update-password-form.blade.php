@@ -13,7 +13,7 @@
             <input id="update_password_current_password" name="current_password" type="password" class="profile-form-input" autocomplete="current-password" />
             <span class="profile-error-message">
                 @if ($errors->updatePassword->get('current_password'))
-                    {{ $errors->updatePassword->get('current_password')[0] }}
+                {{ $errors->updatePassword->get('current_password')[0] }}
                 @endif
             </span>
         </div>
@@ -23,7 +23,7 @@
             <input id="update_password_password" name="password" type="password" class="profile-form-input" autocomplete="new-password" />
             <span class="profile-error-message">
                 @if ($errors->updatePassword->get('password'))
-                    {{ $errors->updatePassword->get('password')[0] }}
+                {{ $errors->updatePassword->get('password')[0] }}
                 @endif
             </span>
         </div>
@@ -33,16 +33,26 @@
             <input id="update_password_password_confirmation" name="password_confirmation" type="password" class="profile-form-input" autocomplete="new-password" />
             <span class="profile-error-message">
                 @if ($errors->updatePassword->get('password_confirmation'))
-                    {{ $errors->updatePassword->get('password_confirmation')[0] }}
+                {{ $errors->updatePassword->get('password_confirmation')[0] }}
                 @endif
             </span>
         </div>
 
         <div class="profile-form-actions">
-            <button type="submit" class="profile-btn profile-btn-primary" style="padding:7px 20px">Simpan</button>
-            @if (session('status') === 'password-updated')
-                <p class="profile-status-message">Saved.</p>
-            @endif
+            <button type="submit" class="profile-btn profile-btn-primary" style="padding:7px 20px" onclick="showSuccessPopup(event)">Simpan</button>
         </div>
     </form>
 </section>
+@if (session('status') === 'password-updated')
+        <script>
+            window.onload = function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Password Berhasil Diubah',
+                    text: 'Silakan gunakan password baru saat login.',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            };
+        </script>
+    @endif
