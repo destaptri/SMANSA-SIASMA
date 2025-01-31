@@ -90,7 +90,7 @@
                             <form action="{{ route('validasi.update', $biodata->id) }}" method="POST" class="d-flex flex-row gap-2">
                                 @csrf
                                 @method('PUT')
-                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579; border-color: #083579">
                                     Edit Biodata
                                 </button>
                                 <button type="submit" name="status" value="valid" class="btn btn-success" onclick="confirmAccept()">
@@ -222,58 +222,71 @@
     document.addEventListener('DOMContentLoaded', function() {
         <?php if (session('success')): ?>
             Swal.fire({
-                title: 'Berhasil!',
-                text: "{{ session('success') }}",
-                icon: 'success',
-                confirmButtonText: 'OK'
+                html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Data Tersimpan!</h2>
+                <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
+                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
+                imageAlt: 'Success Icon',
+                showCloseButton: true,
+                showConfirmButton: false,
+                width: '30%',
+                customClass: {
+                    closeButton: 'custom-close-btn' // Tambahkan class custom
+                }
             });
         <?php endif; ?>
     })
 
     // SweetAlert2 untuk Validasi
-function confirmAccept() {
-    Swal.fire({
-        icon: 'success',
-        title: 'Data telah divalidasi',
-        showConfirmButton: false,
-        timer: 1500
-    }).then(() => {
-        // Submit form setelah popup ditutup
-        document.forms[0].submit();
-    });
-}
+    function confirmAccept() {
+        Swal.fire({
+            html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil!</h2>
+                <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
+                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Validasi</p>`,
+            imageAlt: 'Success Icon',
+            showCloseButton: true,
+            showConfirmButton: false,
+            width: '30%',
+            customClass: {
+                closeButton: 'custom-close-btn' // Tambahkan class custom
+            }
+        })
+        .then(() => {
+            // Submit form setelah popup ditutup
+            document.forms[0].submit();
+        });
+    }
 
-// SweetAlert2 untuk Tolak
-function confirmReject(event) {
+    // SweetAlert2 untuk Tolak
+    function confirmReject(event) {
 
-    Swal.fire({
-        title: 'Tolak Pengajuan Biodata?',
-        text: "Apakah Anda yakin ingin menolak pengajuan biodata?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ya',
-        cancelButtonText: 'Tidak'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Jika Ya, tampilkan pop-up Data Ditolak
-            Swal.fire({
-                icon: 'error',
-                title: 'Data Telah Ditolak',
-                showConfirmButton: false,
-                timer: 1500 // Menampilkan selama 1,5 detik
-            }).then(() => {
-                // Tambahkan sedikit delay sebelum submit form agar popup terlihat
-                setTimeout(function() {
-                    document.forms[1].submit(); // Submit form setelah popup ditutup
-                }, 1500); // Waktu delay sesuai dengan durasi timer pop-up pertama
-            });
-        } else {
-            // Jika Tidak, form tidak jadi disubmit
-            return false;
-        }
-    });
-}
-
-
+        Swal.fire({
+            title: 'Tolak Pengajuan Biodata?',
+            text: "Apakah Anda yakin ingin menolak pengajuan biodata?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika Ya, tampilkan pop-up Data Ditolak
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Data Telah Ditolak',
+                    showConfirmButton: false,
+                    timer: 1500 // Menampilkan selama 1,5 detik
+                }).then(() => {
+                    // Tambahkan sedikit delay sebelum submit form agar popup terlihat
+                    setTimeout(function() {
+                        document.forms[1].submit(); // Submit form setelah popup ditutup
+                    }, 1500); // Waktu delay sesuai dengan durasi timer pop-up pertama
+                });
+            } else {
+                // Jika Tidak, form tidak jadi disubmit
+                return false;
+            }
+        });
+    }
 </script>
 @endsection

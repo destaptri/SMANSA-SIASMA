@@ -1,0 +1,7 @@
+.custom-close-btn {
+    font-size: 30px !important;  /* Ubah ukuran */
+    color: #062A61!important;  /* Ubah warna */
+    outline: none !important; /* Hilangkan outline */
+    box-shadow: none !important; /* Hilangkan efek shadow */
+    
+}

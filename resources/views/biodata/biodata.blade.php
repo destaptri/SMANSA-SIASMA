@@ -87,10 +87,10 @@
                         </table>
 
                         <div class="d-flex justify-content-center justify-content-lg-end mt-4">
-                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal" style="background-color: #0D6EFD; color:white; margin-right:5px;">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#historyModal" style="background-color: #0D6EFD; border-color: #0D6EFD; color:white; margin-right:5px;">
                                 Riwayat Pengajuan
                             </button>
-                            <button type="button" class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579;">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579; border-color:#083579">
                                 Edit Biodata
                             </button>
 
@@ -242,24 +242,31 @@
     </div>
 </div>
 <script>
-function previewImage(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-            document.getElementById('preview-image').src = e.target.result;
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                document.getElementById('preview-image').src = e.target.result;
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
-        
-        reader.readAsDataURL(input.files[0]);
     }
-}
-window.onload = function () {
+    window.onload = function() {
         <?php if (session('flash_success')): ?>
             Swal.fire({
-                title: 'Berhasil!',
-                text: "{{ session('flash_success') }}",
-                icon: 'success',
-                confirmButtonText: 'OK'
+                html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil disimpan!</h2>
+                <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
+                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
+                imageAlt: 'Success Icon',
+                showCloseButton: true,
+                showConfirmButton: false,
+                width: '30%',
+                customClass: {
+                    closeButton: 'custom-close-btn' // Tambahkan class custom
+                }
             });
         <?php endif; ?>
     };
