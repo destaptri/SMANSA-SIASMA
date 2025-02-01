@@ -360,7 +360,12 @@ input[type="search"] {
 
 /* Row Background Color */
 .table tbody tr {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
+    /* Row background color */
+}
+
+.pencarian .table tbody tr {
+    background-color: #E9ECEF;
     /* Row background color */
 }
 

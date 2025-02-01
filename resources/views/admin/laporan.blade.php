@@ -63,7 +63,7 @@
     <div class="row pencarian">
         <div class="col-lg-12">
             <div class="table-responsive" style="max-height: 350px; overflow-y: auto;">
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             @foreach($selectedColumns as $column)

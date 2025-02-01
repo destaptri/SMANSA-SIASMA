@@ -87,7 +87,7 @@
 
                         <!-- Tombol Validasi -->
                         <div class="d-flex justify-content-end mt-4">
-                            <form action="{{ route('validasi.update', $biodata->id) }}" method="POST" class="d-flex flex-row gap-2">
+                            <form action="{{ route('validasi.update', $biodata->id) }}" method="POST" class="d-flex flex-row gap-2" id="validasiForm">
                                 @csrf
                                 @method('PUT')
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editBiodataModal" style="background-color: #083579; border-color: #083579">
@@ -96,7 +96,7 @@
                                 <button type="submit" name="status" value="valid" class="btn btn-success" onclick="confirmAccept()">
                                     Validasi
                                 </button>
-                                <button type="submit" name="status" value="tidak_valid" class="btn btn-danger" onclick="confirmReject(event)">
+                                <button type="button" class="btn btn-danger" onclick="confirmReject(event)">
                                     Tolak
                                 </button>
                             </form>
@@ -249,41 +249,58 @@
             showConfirmButton: false,
             width: '30%',
             customClass: {
-                closeButton: 'custom-close-btn' // Tambahkan class custom
+                closeButton: 'custom-close-btn'
             }
         })
         .then(() => {
-            // Submit form setelah popup ditutup
             document.forms[0].submit();
         });
     }
 
     // SweetAlert2 untuk Tolak
     function confirmReject(event) {
-
         Swal.fire({
-            title: 'Tolak Pengajuan Biodata?',
-            text: "Apakah Anda yakin ingin menolak pengajuan biodata?",
-            icon: 'warning',
+            html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Tolak Pengajuan Biodata?</h2>
+                <img src='{{ Vite::asset("public/images/release_alert.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">`,
+            imageAlt: 'Success Icon',
+            showCloseButton: true,
             showCancelButton: true,
             confirmButtonText: 'Ya',
-            cancelButtonText: 'Tidak'
+            cancelButtonText: 'Batal',
+            confirmButtonColor:'#F21C30',
+            width: '30%',
+            customClass: {
+                closeButton: 'custom-close-btn',
+            }
         }).then((result) => {
             if (result.isConfirmed) {
-                // Jika Ya, tampilkan pop-up Data Ditolak
+                const form = document.getElementById('validasiForm');
+                const statusInput = document.createElement('input');
+                statusInput.type = 'hidden';
+                statusInput.name = 'status';
+                statusInput.value = 'tidak_valid';
+                form.appendChild(statusInput);
+
                 Swal.fire({
-                    icon: 'error',
-                    title: 'Data Telah Ditolak',
-                    showConfirmButton: false,
-                    timer: 1500 // Menampilkan selama 1,5 detik
+                    html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil!</h2>
+                <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
+                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Ditolak</p>`,
+            imageAlt: 'Success Icon',
+            showCloseButton: false,
+            showConfirmButton: false,
+            width: '30%',
+            timer:1500,
+            customClass: {
+                closeButton: 'custom-close-btn'
+            }
                 }).then(() => {
-                    // Tambahkan sedikit delay sebelum submit form agar popup terlihat
                     setTimeout(function() {
-                        document.forms[1].submit(); // Submit form setelah popup ditutup
-                    }, 1500); // Waktu delay sesuai dengan durasi timer pop-up pertama
+                        form.submit();
+                    }, 1000);
                 });
             } else {
-                // Jika Tidak, form tidak jadi disubmit
                 return false;
             }
         });
