@@ -58,7 +58,7 @@
 
     <!-- Update pagination section -->
     <div class="pagination-container">
-        {{ $pengajuan->links() }}
+        {{ $pengajuan->links('pagination.custom') }}
     </div>
 </div>
 </div>

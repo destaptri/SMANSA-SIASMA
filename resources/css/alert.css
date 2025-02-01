@@ -2,6 +2,9 @@
     font-size: 30px !important;  /* Ubah ukuran */
     color: #062A61!important;  /* Ubah warna */
     outline: none !important; /* Hilangkan outline */
-    box-shadow: none !important; /* Hilangkan efek shadow */
-    
+    box-shadow: none !important; /* Hilangkan efek shadow */   
+}
+
+.custom-confirm-btn {
+    background-color: #062A61;
 }

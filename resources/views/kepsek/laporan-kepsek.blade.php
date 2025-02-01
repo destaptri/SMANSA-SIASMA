@@ -62,7 +62,7 @@
 
     <div class="row pencarian">
         <div class="col-lg-12">
-            <div class="table-responsive">
+            <div class="table-responsive" style="max-height: 350px; overflow-y: auto;">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
@@ -107,8 +107,9 @@
         </form>
     </div>
 
-    <div class="pagination">
-        {{ $alumni->links() }}
+    <!-- Update pagination section -->
+    <div class="pagination-container">
+        {{ $alumni->links('pagination.custom') }}
     </div>
 </div>
 
@@ -189,10 +190,17 @@
         event.preventDefault(); // Cegah form submit langsung
 
         Swal.fire({
-            title: "Konfirmasi",
-            text: "Apakah Anda ingin mengunduh data sebagai file Excel?",
-            icon: "warning",
-            confirmButtonText: "Download"
+            html: `
+                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Unduh File?</h2>
+                <img src='{{ Vite::asset("public/images/Frame 8.png") }}' width="150" height="150" style="display: block; margin: 5px auto;">`,
+            imageAlt: 'Success Icon',
+            confirmButtonText: "Unduh",
+            showCloseButton: true,
+            width: '30%',
+            customClass: {
+                closeButton: 'custom-close-btn', // Tambahkan class custom
+                confirmButton: 'custom-confirm-btn'
+            }
         }).then((result) => {
             if (result.isConfirmed) {
                 event.target.closest('form').submit(); // Kirim form setelah konfirmasi
