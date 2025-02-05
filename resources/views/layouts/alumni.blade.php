@@ -42,7 +42,7 @@
                     <div class="navbar-nav ms-auto py-0">
                         @guest
                         <a href="{{ route('beranda') }}" class="nav-item nav-link active">Beranda</a>
-                        <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
+                        <a href="{{ route('login') }}" class="nav-item nav-link" style="border-color: white; color:#083579; background-color:white; border-radius:5px;padding:7px 15px;">Login</a>
                         @endguest
 
                         @auth

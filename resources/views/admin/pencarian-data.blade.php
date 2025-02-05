@@ -53,9 +53,9 @@
         </div>
     </div>
 
-    <!-- Pagination Section -->
+    <!-- Update pagination section -->
     <div class="pagination-container">
-        {{ $alumni->withQueryString()->links() }}
+        {{ $alumni->links('pagination.custom') }}
     </div>
 </div>
 @endsection
