@@ -81,6 +81,7 @@ Route::get('/detail/{id}', [GuestSearchController::class, 'show'])->name('detail
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+Route::post('/search-user', [UserController::class, 'searchUser']);
 
 Route::get('/test', function () {
     return view('test');

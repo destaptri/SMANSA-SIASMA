@@ -62,13 +62,10 @@
 
                     @auth
                     <li class="nav-item">
-                        <a href="{{ route('beranda') }}" class="nav-link active" style="padding:7px 15px;">Beranda</a>
+                        <a href="{{ route('beranda') }}" class="nav-link active">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('alumni.biodata') }}" class="nav-link">Biodata</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="service.html" class="nav-link">Berita</a>
                     </li>
 
                     <!-- Dropdown Profil -->

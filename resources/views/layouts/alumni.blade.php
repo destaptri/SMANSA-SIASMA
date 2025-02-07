@@ -52,9 +52,6 @@
                     <li class="nav-item">
                         <a href="{{ route('alumni.biodata') }}" class="nav-link">Biodata</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="service.html" class="nav-link">Berita</a>
-                    </li>
 
                     <!-- Dropdown Profil -->
                     <li class="nav-item dropdown">

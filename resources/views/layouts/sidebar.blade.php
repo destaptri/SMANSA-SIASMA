@@ -58,11 +58,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteName() === '' ? 'active' : '' }}" href="#">
-                        <i class="bi bi-newspaper"></i> Berita
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() === 'admin.laporan' ? 'active' : '' }}" href="{{ route('admin.laporan') }}">
                         <i class="bi bi-file-earmark-text"></i> Laporan
                     </a>
