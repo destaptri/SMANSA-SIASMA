@@ -225,11 +225,11 @@
                 html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Data Tersimpan!</h2>
                 <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
-                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
+                <p style="margin: 15px 20px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
                 imageAlt: 'Success Icon',
                 showCloseButton: true,
                 showConfirmButton: false,
-                width: '30%',
+                width: 'auto',
                 customClass: {
                     closeButton: 'custom-close-btn' // Tambahkan class custom
                 }
@@ -243,11 +243,11 @@
             html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil!</h2>
                 <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
-                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Validasi</p>`,
+                <p style="margin: 15px 30px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Validasi</p>`,
             imageAlt: 'Success Icon',
             showCloseButton: true,
             showConfirmButton: false,
-            width: '30%',
+            width: 'auto',
             customClass: {
                 closeButton: 'custom-close-btn'
             }
@@ -261,7 +261,7 @@
     function confirmReject(event) {
         Swal.fire({
             html: `
-                <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Tolak Pengajuan Biodata?</h2>
+                <h2 style="margin:20px 30px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Tolak Pengajuan Biodata?</h2>
                 <img src='{{ Vite::asset("public/images/release_alert.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">`,
             imageAlt: 'Success Icon',
             showCloseButton: true,
@@ -269,7 +269,7 @@
             confirmButtonText: 'Ya',
             cancelButtonText: 'Batal',
             confirmButtonColor:'#F21C30',
-            width: '30%',
+            width: 'auto',
             customClass: {
                 closeButton: 'custom-close-btn',
             }
@@ -286,12 +286,12 @@
                     html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil!</h2>
                 <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
-                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Ditolak</p>`,
+                <p style="margin: 15px 30px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Data Telah Ditolak</p>`,
             imageAlt: 'Success Icon',
             showCloseButton: false,
             showConfirmButton: false,
-            width: '30%',
-            timer:1500,
+            width: 'auto',
+            timer:1000,
             customClass: {
                 closeButton: 'custom-close-btn'
             }

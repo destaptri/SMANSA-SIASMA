@@ -12,7 +12,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LaporanKepsekController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('beranda');
 });
 
 Route::middleware(['auth', 'role:Super Admin'])->group(function () {
@@ -71,7 +71,7 @@ Route::middleware(['auth', 'role:Kepala Sekolah'])->group(function () {
 
 // Route lainnya yang tidak terbatas pada role tertentu
 Route::get('/beranda', function () {
-    return view('index');
+    return view('beranda');
 })->name('beranda');
 
 Route::get('/hasil-pencarian', [GuestSearchController::class, 'index'])->name('hasil-pencarian');

@@ -195,7 +195,7 @@
             imageAlt: 'Success Icon',
             confirmButtonText: "Unduh",
             showCloseButton: true,
-            width: '30%',
+            width: 'auto',
             customClass: {
                 closeButton: 'custom-close-btn', // Tambahkan class custom
                 confirmButton: 'custom-confirm-btn'

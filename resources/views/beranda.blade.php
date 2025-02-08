@@ -32,6 +32,9 @@
             color: white;
             position: relative;
         }
+        input::placeholder{
+            font-size: small;
+        }
     </style>
     @vite([
     'resources/css/app.css',

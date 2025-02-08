@@ -19,7 +19,7 @@
 
         <div class="profile-form-group">
             <label for="name" class="profile-form-label">{{ __('Nama Lengkap') }}</label>
-            <input id="name" name="name" type="text" class="profile-form-input" value="{{ old('name', $user->name) }}" required autocomplete="name" />
+            <input id="name" name="name" type="text" class="profile-form-input" value="{{ old('name', $user->name) }}" required autocomplete="name" style="font-size: 14px;" />
             <span class="profile-error-message">
                 @if ($errors->get('name'))
                     {{ $errors->get('name')[0] }}

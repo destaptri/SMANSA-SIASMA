@@ -259,11 +259,11 @@
                 html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil disimpan!</h2>
                 <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
-                <p style="margin-top: 15px; margin-bottom:15px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
+                <p style="margin: 15px 20px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
                 imageAlt: 'Success Icon',
                 showCloseButton: true,
                 showConfirmButton: false,
-                width: '30%',
+                width: 'auto',
                 customClass: {
                     closeButton: 'custom-close-btn' // Tambahkan class custom
                 }
