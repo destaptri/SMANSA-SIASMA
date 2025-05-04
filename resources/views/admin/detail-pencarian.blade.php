@@ -16,7 +16,7 @@
                 <div class="row">
                     <!-- Foto Profil -->
                     <div class="col-lg-3 col-md-12 text-center">
-                        <img src="{{ $alumni->foto_pribadi ? asset('storage/' . $alumni->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
+                        <img src="{{ $alumni->foto_pribadi ? asset('storage/' . $alumni->foto_pribadi) : Vite::asset('resources/images/default_avatar.png') }}"
                             class="img-fluid mb-3"
                             alt="Foto Alumni"
                             id="profile-image">

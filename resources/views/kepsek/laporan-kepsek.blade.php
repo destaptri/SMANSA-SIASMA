@@ -192,7 +192,7 @@
         Swal.fire({
             html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Unduh File?</h2>
-                <img src='{{ Vite::asset("public/images/Frame 8.png") }}' width="150" height="150" style="display: block; margin: 5px auto;">`,
+                <img src='{{ Vite::asset("resources/images/Frame 8.png") }}' width="150" height="150" style="display: block; margin: 5px auto;">`,
             imageAlt: 'Success Icon',
             confirmButtonText: "Unduh",
             showCloseButton: true,

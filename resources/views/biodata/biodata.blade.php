@@ -17,7 +17,7 @@
                 <div class="row">
                     <!-- Foto Profil -->
                     <div class="col-lg-3 col-md-12 text-center">
-                        <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
+                        <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('resources/images/default_avatar.png') }}"
                             class="img-fluid mb-3"
                             alt="Foto Alumni"
                             id="profile-image">
@@ -116,7 +116,7 @@
                     <!-- Foto Profile Section -->
                     <div class="mb-3">
                         <div class="d-flex align-items-center mb-2">
-                            <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('public/images/default_avatar.png') }}"
+                            <img src="{{ $biodata->foto_pribadi ? asset('storage/' . $biodata->foto_pribadi) : Vite::asset('resources/images/default_avatar.png') }}"
                                 class="rounded me-2"
                                 alt="Preview"
                                 id="preview-image"
@@ -258,7 +258,7 @@
             Swal.fire({
                 html: `
                 <h2 style="margin-top:20px; margin-bottom: 15px; font-size:16px; font-family: 'Inter', sans-serif; color:#062A61;font-weight:bold;">Berhasil disimpan!</h2>
-                <img src='{{ Vite::asset("public/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
+                <img src='{{ Vite::asset("resources/images/new_releases.png") }}' width="100" height="100" style="display: block; margin: 5px auto;">
                 <p style="margin: 15px 20px; font-size: 16px; font-family: 'Inter', sans-serif; color:#062A61; font-weight:bold;">Menunggu Proses Validasi</p>`,
                 imageAlt: 'Success Icon',
                 showCloseButton: true,

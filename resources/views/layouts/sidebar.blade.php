@@ -35,7 +35,7 @@
         <!-- Sidebar -->
         <nav class="sidebar flex-column bg-white position-sticky">
             <div class="sidebar-header p-3 d-flex align-items-center">
-                <img src="{{ Vite::asset('public/images/logo.png') }}" alt="Logo" class="logo me-3">
+                <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" class="logo me-3">
                 <div>
                     <span class="brand-name d-block">SIASMA</span>
                     <span class="brand-subtitle">SISTEM INFORMASI ALUMNI<br>SMAN 1 PONTIANAK</span>

@@ -22,7 +22,7 @@
     <link href="resources/css/styles.css" rel="stylesheet" />
     <style>
         .hero-section {
-            background-image: url("{{ Vite::asset('public/images/login_image.jpg')}}");
+            background-image: url("{{ Vite::asset('resources/images/login_image.jpg')}}");
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -47,7 +47,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="d-flex align-items-center">
-                <img src="{{ Vite::asset('public/images/logo.png') }}" alt="Logo" class="logo">
+                <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo" class="logo">
                 <div>
                     <span class="brand-name">SIASMA</span><br>
                     <span class="brand-subtitle">SISTEM INFORMASI ALUMNI SMAN 1 PONTIANAK</span>
